@@ -1,0 +1,37 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{margin:0px; padding:0px; line-height:18px; color:#242625; font-family:"Trebuchet MS"; font-size:12px; font-style:normal;}
+
+h1,h2,h3,h4,h5,h6,ul,li,p{padding:0px; margin:0px;}
+p{line-height:18px; text-align:justify; color:#242625;}
+
+h1{margin:0px; padding:0px; color:#fff; font-size:16px; font-weight:normal; font-family:"Trebuchet MS"}
+h2{margin:0px; padding:0px; color:#395897; font-size:12px; font-weight:bold; font-family:"Trebuchet MS";
+    width: 138px;
+}
+h3{margin:0px; padding:0px; color:#fff; font-size:18px; font-weight:normal; font-family:"Trebuchet MS"}
+h4{margin:0px; padding:0px; color:#395897; font-size:20px; font-weight:bold; font-family:"Trebuchet MS";
+    width: 338px;
+    height: 25px;
+}
+h5{margin:0px; padding:0px; color:#fff; font-size:16px; font-weight:bold; font-family:"Comic Sans MS"}
+h6{margin:0px; padding:0px; color:#fff; font-size:30px; font-weight:bold; font-family:"Comic Sans MS";}
+
+
+#menu{ width:1000px;}
+#menu ul{ margin:0px; padding:0px;  float:right; }
+#menu ul li{ display:block; margin:0px; list-style:none; float:left; width:auto; font-weight:bold; font-size:14px; font-family:"Comic Sans MS"; }
+#menu ul li a{ display:block; margin:0px; list-style:none; float:left; padding:7px 15px 7px 15px; text-decoration:none;color:#fff;}
+#menu ul li a:hover,#menu ul li a.current{ display:block; margin:0px; list-style:none; float:left; padding:7px 15px 7px 15px; text-decoration:none; color:#fff; background-color:#163a87;}
+
+.menudivider{background:url(../images/menu-div.jpg) no-repeat left top; width:2px; height:33px; margin:0px; padding:0px;}
+
+.flds{border:solid 1px #1c428d; padding:4px;}
+
+.trans{border:solid 1px #1c428d; padding:4px; width:198px;}
+
+.forgot{font-size:12px; text-decoration:none; color:#464646; text-decoration:none;}
+.forgot:hover{font-size:12px; text-decoration:underline; color:#000;}
+
+.footer{font-size:12px; color:#fff; font-weight:normal;}
