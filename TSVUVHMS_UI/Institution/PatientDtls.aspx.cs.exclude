@@ -1,0 +1,744 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using VHMS_BL;
+using VHMS_BE;
+using System.Data;
+using System.Web.Security;
+using System.Configuration;
+using System.Collections;
+using System.Web.Security;
+using System.Web.UI.WebControls.WebParts;
+using System.Web.UI.HtmlControls;
+using System.Data.SqlClient;
+using System.IO;
+using System.Text;
+
+public partial class EVHMS_UI_Admin_Default : System.Web.UI.Page
+{
+
+    InstutionBAL ObjIns = new InstutionBAL();
+    CommonFuncs objCommon = new CommonFuncs();
+    DataTable ddt;
+    ListItem li;
+    string UniqueInstId, StateCode, UserName;
+    int total = 0;
+    string INSERT, UPDATE, RETRIEVAL, Animal;
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if ((Request.ServerVariables["HTTP_REFERER"] == null) || (Request.ServerVariables["HTTP_REFERER"] == ""))
+        {
+            Response.Redirect("~/Error.aspx");
+        }
+        else
+        {
+            string http_ref = Request.ServerVariables["HTTP_REFERER"].Trim();
+            string http_hos = Request.ServerVariables["HTTP_HOST"].Trim();
+            int len = http_hos.Length;
+            if (http_ref.IndexOf(http_hos, 0) < 0)
+            {
+                Response.Redirect("~/Error.aspx");
+            }
+        }
+        if (Session["Role"].ToString() == null || Session["Role"].ToString() != "2")
+        {
+            Response.Redirect("~/Error.aspx");
+        }
+        lblUsrName.Text = Session["UsrName"].ToString();
+        lblDate.Text = DateTime.Now.Day + "/" + DateTime.Now.Month + "/" + DateTime.Now.Year;
+        UserName = Session["UsrName"].ToString();
+        StateCode = Session["StateCd"].ToString();
+        UniqueInstId = Session["UniqueInstId"].ToString();
+        if (!IsPostBack)
+        {
+            ddt = ObjIns.viewAnimaldataBAL();
+            try
+            {
+                objCommon.BindDropDownLists_WithAllOption(ddl_AnimalType, ddt, "AnimalTypeDesc", "AnimalTypeCode", "0");
+            }
+            catch (Exception ex)
+            {
+                ExceptionLogging.SendExcepToDB(ex, Session["UsrName"].ToString(), Request.ServerVariables["REMOTE_ADDR"].ToString());
+                Response.Redirect("~/Error.aspx");
+            }
+            GetInsNameBAL();
+        }
+        GvPatientDtls.Visible = false;
+        Response.Cache.SetCacheability(HttpCacheability.NoCache);
+        btnPrintAll.Visible = false;
+        btnPrintCurrent.Visible = false;
+        btnPrintDtls.Visible = false;
+        btnPrintCurrentDtls.Visible = false;
+        // btnPrintCurrentDtlsT.Visible = false;
+        btnPrintDtlst.Visible = false;
+        // total = 0;
+    }
+    public void GetInsNameBAL()
+    {
+        try
+        {
+            DataTable dt = new DataTable();
+            dt = ObjIns.GetInsNameBAL(UniqueInstId, UserName);
+            lblInsName.Text = dt.Rows[0]["InstitutionName"].ToString();
+        }
+        catch (Exception ex)
+        {
+            ExceptionLogging.SendExcepToDB(ex, Session["UsrName"].ToString(), Request.ServerVariables["REMOTE_ADDR"].ToString());
+            Response.Redirect("~/Error.aspx");
+        }
+    }
+    protected bool DateValidation()
+    {
+        if (txtFromDate.Text.Trim() == "")
+        {
+            objCommon.ShowAlertMessage("Select From Date  ");
+            txtFromDate.Focus();
+            return false;
+        }
+        if (txtToDate.Text == "")
+        {
+            objCommon.ShowAlertMessage("Select To Date  ");
+            txtToDate.Focus();
+            return false;
+        }
+
+
+        return true;
+
+    }
+
+
+    protected void btn_Submit_Click(object sender, EventArgs e)
+    {
+
+
+        if (DateValidation())
+        {
+            if (ddl_AnimalType.SelectedValue == "ALL")
+                GetPaitentDtls();
+            else
+                GetPaitentDtls1();
+
+        }
+
+
+    }
+    protected void GvPatientDtlsAll_RowCommand(object sender, GridViewCommandEventArgs e)
+    {
+
+        if (e.CommandName == "ShowPaitentdetails")
+        {
+            DateTime FromDate = DateTime.Parse(txtFromDate.Text.Trim(), provider, System.Globalization.DateTimeStyles.NoCurrentDateDefault).Date;
+            DateTime ToDate = DateTime.Parse(txtToDate.Text.Trim(), provider, System.Globalization.DateTimeStyles.NoCurrentDateDefault).Date;
+            GvPatientDtls.Visible = true;
+            GridViewRow gvrow = (GridViewRow)((Control)e.CommandSource).NamingContainer;
+            Label lblAtypeCd = (Label)gvrow.FindControl("lblAtypeCd");
+            ViewState["TypeCd"] = lblAtypeCd.Text;
+            DataTable dtPaitentDtlsAtype = ObjIns.GetAtypeBAL(Session["UniqueInstId"].ToString(), lblAtypeCd.Text, FromDate, ToDate);
+            try
+            {
+                if (dtPaitentDtlsAtype.Rows.Count > 0)
+                {
+                    GvPatientDtls.DataSource = dtPaitentDtlsAtype;
+                    GvPatientDtls.DataBind();
+                    GvPatientDtls.Visible = true;
+                }
+                else
+                {
+                    GvPatientDtls.DataSource = null;
+                    GvPatientDtls.DataBind();
+                    GvPatientDtls.Visible = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                ExceptionLogging.SendExcepToDB(ex, Session["UsrName"].ToString(), Request.ServerVariables["REMOTE_ADDR"].ToString());
+                Response.Redirect("~/Error.aspx");
+            }
+        }
+
+        if (e.CommandName == "ShowPaitentdetailsALL")
+        {
+            DateTime FromDate = DateTime.Parse(txtFromDate.Text.Trim(), provider, System.Globalization.DateTimeStyles.NoCurrentDateDefault).Date;
+            DateTime ToDate = DateTime.Parse(txtToDate.Text.Trim(), provider, System.Globalization.DateTimeStyles.NoCurrentDateDefault).Date;
+            GvPatientDtls.Visible = true;
+            GridViewRow gvrow = (GridViewRow)((Control)e.CommandSource).NamingContainer;
+            //Label lblACd = (Label)gvrow.FindControl("lblAtypeCd");
+            DataTable dtAtype = ObjIns.GetAtypeALLBAL(Session["UniqueInstId"].ToString(), FromDate, ToDate);
+            try
+            {
+                if (dtAtype.Rows.Count > 0)
+                {
+                    GvPatientDtls.DataSource = dtAtype;
+                    GvPatientDtls.DataBind();
+                    GvPatientDtls.Visible = true;
+                    //btnPrintCurrentDtlsT.Visible = true;
+                    btnPrintDtlst.Visible = true;
+
+                }
+                else
+                {
+                    GvPatientDtls.DataSource = null;
+                    GvPatientDtls.DataBind();
+                    GvPatientDtls.Visible = false;
+                    //btnPrintDtls.Visible = false;
+                    //btnPrintCurrentDtls.Visible = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                ExceptionLogging.SendExcepToDB(ex, Session["UsrName"].ToString(), Request.ServerVariables["REMOTE_ADDR"].ToString());
+                Response.Redirect("~/Error.aspx");
+            }
+        }
+    }
+    IFormatProvider provider = new System.Globalization.CultureInfo("fr-FR", true);
+    protected void GetPaitentDtls()
+    {
+        btnPrintAll.Visible = true;
+        btnPrintCurrent.Visible = true;
+        btnPrintDtls.Visible = false;
+        btnPrintCurrentDtls.Visible = false;
+        // btnPrint.Visible = true;
+        if (ddl_AnimalType.SelectedValue == "ALL")
+        {
+            try
+            {
+                DateTime FromDate = DateTime.Parse(txtFromDate.Text.Trim(), provider, System.Globalization.DateTimeStyles.NoCurrentDateDefault).Date;
+                DateTime ToDate = DateTime.Parse(txtToDate.Text.Trim(), provider, System.Globalization.DateTimeStyles.NoCurrentDateDefault).Date;
+                DataTable dtPaitentDtls = ObjIns.GetAnimalReportBAL(Session["UniqueInstId"].ToString(), ddl_AnimalType.SelectedValue.ToString(), FromDate, ToDate);
+
+                if (dtPaitentDtls.Rows.Count > 0)
+                {
+                    GvPatientDtlsAll.DataSource = dtPaitentDtls;
+                    GvPatientDtlsAll.DataBind();
+                    GvPatientDtlsAll.Visible = true;
+
+                    btnPrintDtls.Visible = false;
+                    btnPrintCurrentDtls.Visible = false;
+                }
+                else
+                {
+                    GvPatientDtlsAll.DataSource = null;
+                    GvPatientDtlsAll.DataBind();
+                    GvPatientDtlsAll.Visible = false;
+                    btnPrintAll.Visible = false;
+                    btnPrintCurrent.Visible = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                ExceptionLogging.SendExcepToDB(ex, Session["UsrName"].ToString(), Request.ServerVariables["REMOTE_ADDR"].ToString());
+                Response.Redirect("~/Error.aspx");
+            }
+        }
+
+
+    }
+    protected void GetPaitentDtlsAll()
+    {
+        btnPrintAll.Visible = false;
+        btnPrintCurrent.Visible = false;
+        btnPrintDtls.Visible = true;
+        btnPrintCurrentDtls.Visible = true;
+        if (DateValidation())
+        {
+            DateTime FromDate = DateTime.Parse(txtFromDate.Text.Trim(), provider, System.Globalization.DateTimeStyles.NoCurrentDateDefault).Date;
+            DateTime ToDate = DateTime.Parse(txtToDate.Text.Trim(), provider, System.Globalization.DateTimeStyles.NoCurrentDateDefault).Date;
+            DataTable dtPaitentDtlsAtype = ObjIns.GetAnimalReportBAL(Session["UniqueInstId"].ToString(), ddl_AnimalType.SelectedValue.ToString(), FromDate, ToDate);
+            try
+            {
+                if (dtPaitentDtlsAtype.Rows.Count > 0)
+                {
+                    GvPatientDtls.DataSource = dtPaitentDtlsAtype;
+                    GvPatientDtls.DataBind();
+                    GvPatientDtls.Visible = true;
+                }
+                else
+                {
+                    GvPatientDtls.DataSource = null;
+                    GvPatientDtls.DataBind();
+                    GvPatientDtls.Visible = false;
+                    btnPrintDtls.Visible = false;
+                    btnPrintCurrentDtls.Visible = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                ExceptionLogging.SendExcepToDB(ex, Session["UsrName"].ToString(), Request.ServerVariables["REMOTE_ADDR"].ToString());
+                Response.Redirect("~/Error.aspx");
+            }
+
+            GvPatientDtlsAll.Visible = false;
+        }
+    }
+    protected void GetPaitentDtls1()
+    {
+        btnPrintAll.Visible = false;
+        btnPrintCurrent.Visible = false;
+        btnPrintDtls.Visible = true;
+        btnPrintCurrentDtls.Visible = true;
+        if (DateValidation())
+        {
+            DateTime FromDate = DateTime.Parse(txtFromDate.Text.Trim(), provider, System.Globalization.DateTimeStyles.NoCurrentDateDefault).Date;
+            DateTime ToDate = DateTime.Parse(txtToDate.Text.Trim(), provider, System.Globalization.DateTimeStyles.NoCurrentDateDefault).Date;
+            DataTable dtPaitentDtlsAtype = ObjIns.GetAtypeBAL(Session["UniqueInstId"].ToString(), ddl_AnimalType.SelectedValue.ToString(), FromDate, ToDate);
+            try
+            {
+                if (dtPaitentDtlsAtype.Rows.Count > 0)
+                {
+                    GvPatientDtls.DataSource = dtPaitentDtlsAtype;
+                    GvPatientDtls.DataBind();
+                    GvPatientDtls.Visible = true;
+                }
+                else
+                {
+                    GvPatientDtls.DataSource = null;
+                    GvPatientDtls.DataBind();
+                    GvPatientDtls.Visible = false;
+                    btnPrintDtls.Visible = false;
+                    btnPrintCurrentDtls.Visible = false;
+                }
+
+                GvPatientDtlsAll.Visible = false;
+            }
+            catch (Exception ex)
+            {
+                ExceptionLogging.SendExcepToDB(ex, Session["UsrName"].ToString(), Request.ServerVariables["REMOTE_ADDR"].ToString());
+                Response.Redirect("~/Error.aspx");
+            }
+        }
+         
+    }
+    protected void GetPaitentDtlsT()
+    {
+        btnPrintAll.Visible = false;
+        btnPrintCurrent.Visible = false;
+        btnPrintDtls.Visible = true;
+        btnPrintCurrentDtls.Visible = true;
+        if (DateValidation())
+        {
+            DateTime FromDate = DateTime.Parse(txtFromDate.Text.Trim(), provider, System.Globalization.DateTimeStyles.NoCurrentDateDefault).Date;
+            DateTime ToDate = DateTime.Parse(txtToDate.Text.Trim(), provider, System.Globalization.DateTimeStyles.NoCurrentDateDefault).Date;
+            DataTable dtPaitentDtlsAtype = ObjIns.GetAtypeALLBAL(Session["UniqueInstId"].ToString(), FromDate, ToDate);
+            try
+            {
+                if (dtPaitentDtlsAtype.Rows.Count > 0)
+                {
+                    GvPatientDtls.DataSource = dtPaitentDtlsAtype;
+                    GvPatientDtls.DataBind();
+                    GvPatientDtls.Visible = true;
+                }
+                else
+                {
+                    GvPatientDtls.DataSource = null;
+                    GvPatientDtls.DataBind();
+                    GvPatientDtls.Visible = false;
+                    btnPrintDtls.Visible = false;
+                    btnPrintCurrentDtls.Visible = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                ExceptionLogging.SendExcepToDB(ex, Session["UsrName"].ToString(), Request.ServerVariables["REMOTE_ADDR"].ToString());
+                Response.Redirect("~/Error.aspx");
+            }
+            // GvPatientDtlsAll.Visible = false;
+        }
+    }
+    protected void GvPatientDtlsAll_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+        GvPatientDtlsAll.PageIndex = e.NewPageIndex;
+        GetPaitentDtls();
+        //GvPatientDtlsAll.DataBind();
+    }
+    protected void ddl_AnimalType_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+
+    }
+    protected void GvPatientDtls_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+        if (ddl_AnimalType.SelectedValue == "ALL")
+        {
+            GvPatientDtls.PageIndex = e.NewPageIndex;
+            GetPaitentDtlsT();
+        }
+        else
+        {
+
+            GvPatientDtls.PageIndex = e.NewPageIndex;
+            GetPaitentDtls1();
+        }
+    }
+    protected void GvPatientDtls_RowCancelling(object sender, GridViewCancelEditEventArgs e)
+    {
+        GvPatientDtls.EditIndex = -1;
+
+
+    }
+
+
+
+    protected void GvPatientDtls_RowEditing(object sender, GridViewEditEventArgs e)
+    {
+        GvPatientDtls.EditIndex = e.NewEditIndex;
+
+    }
+
+
+  
+
+
+    protected void GvPatientDtlsAll_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+
+        if (e.Row.RowType == DataControlRowType.DataRow)
+        {
+            total += Convert.ToInt32(DataBinder.Eval(e.Row.DataItem, "total"));
+        }
+        if (e.Row.RowType == DataControlRowType.Footer)
+        {
+            LinkButton lblTotal = (LinkButton)e.Row.FindControl("lblTotal");
+            lblTotal.Text = "";
+            lblTotal.Text = total.ToString();
+            total = 0;
+        }
+
+    }
+
+    public override void VerifyRenderingInServerForm(Control control)
+    {
+        /*Verifies that the control is rendered */
+    }
+    protected void PrintCurrentPage(object sender, EventArgs e)
+    {
+        GvPatientDtlsAll.PagerSettings.Visible = false;
+
+        GetPaitentDtls();
+        StringWriter sw = new StringWriter();
+        HtmlTextWriter hw = new HtmlTextWriter(sw);
+        GvPatientDtlsAll.RenderControl(hw);
+        string gridHTML = sw.ToString().Replace("\"", "'")
+            .Replace(System.Environment.NewLine, "");
+        StringBuilder sb = new StringBuilder();
+        sb.Append("<script type = 'text/javascript'>");
+        sb.Append("window.onload = new function(){");
+        sb.Append("var printWin = window.open('', '', 'left=0");
+        sb.Append(",top=0,width=1000,height=600,status=0');");
+        sb.Append("printWin.document.write(\"");
+        sb.Append(gridHTML);
+        sb.Append("\");");
+        sb.Append("printWin.document.close();");
+        sb.Append("printWin.focus();");
+        sb.Append("printWin.print();");
+        sb.Append("printWin.close();};");
+        sb.Append("</script>");
+        ClientScript.RegisterStartupScript(this.GetType(), "GridPrint", sb.ToString());
+        GvPatientDtlsAll.PagerSettings.Visible = true;
+        GetPaitentDtls();
+    }
+
+    protected void PrintAllPages(object sender, EventArgs e)
+    {
+        GvPatientDtlsAll.AllowPaging = false;
+        GetPaitentDtls();
+        // GvPatientDtlsAll.DataBind();
+        StringWriter sw = new StringWriter();
+        HtmlTextWriter hw = new HtmlTextWriter(sw);
+        GvPatientDtlsAll.RenderControl(hw);
+        string gridHTML = sw.ToString().Replace("\"", "'")
+            .Replace(System.Environment.NewLine, "");
+        StringBuilder sb = new StringBuilder();
+        sb.Append("<script type = 'text/javascript'>");
+        sb.Append("window.onload = new function(){");
+        sb.Append("var printWin = window.open('', '', 'left=0");
+        sb.Append(",top=0,width=1000,height=600,status=0');");
+        sb.Append("printWin.document.write(\"");
+        sb.Append("<html><table><tr><td align=center>");
+        sb.Append("<h1>Abstract Report</h1>");
+        sb.Append("</td></tr></table></html>");
+        sb.Append(gridHTML);
+        sb.Append("\");");
+        sb.Append("printWin.document.close();");
+        sb.Append("printWin.focus();");
+        sb.Append("printWin.print();");
+        sb.Append("printWin.close();};");
+        sb.Append("</script>");
+        ClientScript.RegisterStartupScript(this.GetType(), "GridPrint", sb.ToString());
+        GvPatientDtlsAll.AllowPaging = true;
+        GetPaitentDtls();
+        //GvPatientDtlsAll.DataBind();
+    }
+
+
+    protected void btnPrintDtlsAll(object sender, EventArgs e)
+    {
+        GvPatientDtls.AllowPaging = false;
+        if (ddl_AnimalType.SelectedValue.ToString() == "")
+        {
+            GetPaitentDtlsAll();
+        }
+        GetPaitentDtls1();
+        // GvPatientDtlsAll.DataBind();
+        StringWriter sw = new StringWriter();
+        HtmlTextWriter hw = new HtmlTextWriter(sw);
+        GvPatientDtls.RenderControl(hw);
+        string gridHTML = sw.ToString().Replace("\"", "'")
+            .Replace(System.Environment.NewLine, "");
+        StringBuilder sb = new StringBuilder();
+        sb.Append("<script type = 'text/javascript'>");
+        sb.Append("window.onload = new function(){");
+        sb.Append("var printWin = window.open('', '', 'left=0");
+        sb.Append(",top=0,width=1000,height=600,status=0');");
+        sb.Append("printWin.document.write(\"");
+        sb.Append("<html><table><tr><td align=center>");
+        sb.Append("<h1>Detail Report</h1>");
+        sb.Append("</td></tr></table></html>");
+        sb.Append("<html><table><tr><td align=center>");
+        sb.Append("<h1>FromDate:</h1>");
+        sb.Append("</td>");
+        sb.Append("<td><h1>" + txtFromDate.Text + "</h1>");
+        sb.Append("</td>");
+        sb.Append("<td><h1>To Date:</h1>");
+        sb.Append("</td>");
+        sb.Append("<td><h1>" + txtToDate.Text + "</h1>");
+        sb.Append("</td>");
+        sb.Append("</tr></table></html>");
+        sb.Append(gridHTML);
+        sb.Append("\");");
+        sb.Append("printWin.document.close();");
+        sb.Append("printWin.focus();");
+        sb.Append("printWin.print();");
+        sb.Append("printWin.close();};");
+        sb.Append("</script>");
+        ClientScript.RegisterStartupScript(this.GetType(), "GridPrintDtls", sb.ToString());
+        GvPatientDtls.AllowPaging = true;
+        GetPaitentDtls1();
+        //GvPatientDtlsAll.DataBind();
+    }
+
+    protected void btnPrintDtlstAllT(object sender, EventArgs e)
+    {
+        GvPatientDtls.AllowPaging = false;
+
+        GetPaitentDtlsT();
+        // GvPatientDtlsAll.DataBind();
+        StringWriter sw = new StringWriter();
+        HtmlTextWriter hw = new HtmlTextWriter(sw);
+        GvPatientDtls.RenderControl(hw);
+        string gridHTML = sw.ToString().Replace("\"", "'")
+            .Replace(System.Environment.NewLine, "");
+        StringBuilder sb = new StringBuilder();
+        sb.Append("<script type = 'text/javascript'>");
+        sb.Append("window.onload = new function(){");
+        sb.Append("var printWin = window.open('', '', 'left=0");
+        sb.Append(",top=0,width=1000,height=600,status=0');");
+        sb.Append("printWin.document.write(\"");
+        sb.Append("<html><table><tr><td align=center>");
+        sb.Append("<h1>Detail Report</h1>");
+        sb.Append("</td></tr></table></html>");
+        sb.Append("<html><table><tr><td align=center>");
+        sb.Append("<h1>FromDate:</h1>");
+        sb.Append("</td>");
+        sb.Append("<td><h1>" + txtFromDate.Text + "</h1>");
+        sb.Append("</td>");
+        sb.Append("<td><h1>To Date:</h1>");
+        sb.Append("</td>");
+        sb.Append("<td><h1>" + txtToDate.Text + "</h1>");
+        sb.Append("</td>");
+        sb.Append("</tr></table></html>");
+        sb.Append(gridHTML);
+        sb.Append("\");");
+        sb.Append("printWin.document.close();");
+        sb.Append("printWin.focus();");
+        sb.Append("printWin.print();");
+        sb.Append("printWin.close();};");
+        sb.Append("</script>");
+        ClientScript.RegisterStartupScript(this.GetType(), "GridPrintDtls", sb.ToString());
+        GvPatientDtls.AllowPaging = true;
+        GetPaitentDtlsT();
+        //GvPatientDtlsAll.DataBind();
+    }
+    protected void btnPrintCurrentDtlsAll(object sender, EventArgs e)
+    {
+        GvPatientDtls.PagerSettings.Visible = false;
+        GetPaitentDtls1();
+        StringWriter sw = new StringWriter();
+        HtmlTextWriter hw = new HtmlTextWriter(sw);
+        GvPatientDtls.RenderControl(hw);
+        string gridHTML = sw.ToString().Replace("\"", "'")
+            .Replace(System.Environment.NewLine, "");
+        StringBuilder sb = new StringBuilder();
+        sb.Append("<script type = 'text/javascript'>");
+        sb.Append("window.onload = new function(){");
+        sb.Append("var printWin = window.open('', '', 'left=0");
+        sb.Append(",top=0,width=1000,height=600,status=0');");
+        sb.Append("printWin.document.write(\"");
+        sb.Append("<html><table><tr><td align=center>");
+        sb.Append("<h1>Detail Report</h1>");
+        sb.Append("</td></tr></table></html>");
+        sb.Append(gridHTML);
+        sb.Append("\");");
+        sb.Append("printWin.document.close();");
+        sb.Append("printWin.focus();");
+        sb.Append("printWin.print();");
+        sb.Append("printWin.close();};");
+        sb.Append("</script>");
+        ClientScript.RegisterStartupScript(this.GetType(), "GridPrintDtls", sb.ToString());
+        GvPatientDtls.PagerSettings.Visible = true;
+
+    }
+
+
+    protected void btnPrintDtlstAll(object sender, EventArgs e)
+    {
+        GvPatientDtls.AllowPaging = false;
+
+        GetPaitentDtlsAll();
+
+        // GvPatientDtlsAll.DataBind();
+        StringWriter sw = new StringWriter();
+        HtmlTextWriter hw = new HtmlTextWriter(sw);
+        GvPatientDtls.RenderControl(hw);
+        string gridHTML = sw.ToString().Replace("\"", "'")
+            .Replace(System.Environment.NewLine, "");
+        StringBuilder sb = new StringBuilder();
+        sb.Append("<script type = 'text/javascript'>");
+        sb.Append("window.onload = new function(){");
+        sb.Append("var printWin = window.open('', '', 'left=0");
+        sb.Append(",top=0,width=1000,height=600,status=0');");
+        sb.Append("printWin.document.write(\"");
+        sb.Append("<html><table><tr><td align=center>");
+        sb.Append("<h1>Detail Report</h1>");
+        sb.Append("</td></tr></table></html>");
+        sb.Append("<html><table><tr><td align=center>");
+        sb.Append("<h1>FromDate:</h1>");
+        sb.Append("</td>");
+        sb.Append("<td><h1>" + txtFromDate.Text + "</h1>");
+        sb.Append("</td>");
+        sb.Append("<td><h1>To Date:</h1>");
+        sb.Append("</td>");
+        sb.Append("<td><h1>" + txtToDate.Text + "</h1>");
+        sb.Append("</td>");
+        sb.Append("</tr></table></html>");
+        sb.Append(gridHTML);
+        sb.Append("\");");
+        sb.Append("printWin.document.close();");
+        sb.Append("printWin.focus();");
+        sb.Append("printWin.print();");
+        sb.Append("printWin.close();};");
+        sb.Append("</script>");
+        ClientScript.RegisterStartupScript(this.GetType(), "GridPrintDtls", sb.ToString());
+        GvPatientDtls.AllowPaging = true;
+        GetPaitentDtls1();
+    }
+    protected void btnPrintCurrentDtlsTAll(object sender, EventArgs e)
+    {
+        GvPatientDtls.AllowPaging = false;
+
+        GetPaitentDtlsAll();
+
+        // GvPatientDtlsAll.DataBind();
+        StringWriter sw = new StringWriter();
+        HtmlTextWriter hw = new HtmlTextWriter(sw);
+        GvPatientDtls.RenderControl(hw);
+        string gridHTML = sw.ToString().Replace("\"", "'")
+            .Replace(System.Environment.NewLine, "");
+        StringBuilder sb = new StringBuilder();
+        sb.Append("<script type = 'text/javascript'>");
+        sb.Append("window.onload = new function(){");
+        sb.Append("var printWin = window.open('', '', 'left=0");
+        sb.Append(",top=0,width=1000,height=600,status=0');");
+        sb.Append("printWin.document.write(\"");
+        sb.Append("<html><table><tr><td align=center>");
+        sb.Append("<h1>Detail Report</h1>");
+        sb.Append("</td></tr></table></html>");
+        sb.Append("<html><table><tr><td align=center>");
+        sb.Append("<h1>FromDate:</h1>");
+        sb.Append("</td>");
+        sb.Append("<td><h1>" + txtFromDate.Text + "</h1>");
+        sb.Append("</td>");
+        sb.Append("<td><h1>To Date:</h1>");
+        sb.Append("</td>");
+        sb.Append("<td><h1>" + txtToDate.Text + "</h1>");
+        sb.Append("</td>");
+        sb.Append("</tr></table></html>");
+        sb.Append(gridHTML);
+        sb.Append("\");");
+        sb.Append("printWin.document.close();");
+        sb.Append("printWin.focus();");
+        sb.Append("printWin.print();");
+        sb.Append("printWin.close();};");
+        sb.Append("</script>");
+        ClientScript.RegisterStartupScript(this.GetType(), "GridPrintDtls", sb.ToString());
+        GvPatientDtls.AllowPaging = true;
+        GetPaitentDtls1();
+    }
+    protected void btnPrintCurrentDtlsTAllT(object sender, EventArgs e)
+    {
+        GvPatientDtls.AllowPaging = false;
+
+        GetPaitentDtlsT();
+
+        // GvPatientDtlsAll.DataBind();
+        StringWriter sw = new StringWriter();
+        HtmlTextWriter hw = new HtmlTextWriter(sw);
+        GvPatientDtls.RenderControl(hw);
+        string gridHTML = sw.ToString().Replace("\"", "'")
+            .Replace(System.Environment.NewLine, "");
+        StringBuilder sb = new StringBuilder();
+        sb.Append("<script type = 'text/javascript'>");
+        sb.Append("window.onload = new function(){");
+        sb.Append("var printWin = window.open('', '', 'left=0");
+        sb.Append(",top=0,width=1000,height=600,status=0');");
+        sb.Append("printWin.document.write(\"");
+        sb.Append("<html><table><tr><td align=center>");
+        sb.Append("<h1>Detail Report</h1>");
+        sb.Append("</td></tr></table></html>");
+        sb.Append("<html><table><tr><td align=center>");
+        sb.Append("<h1>FromDate:</h1>");
+        sb.Append("</td>");
+        sb.Append("<td><h1>" + txtFromDate.Text + "</h1>");
+        sb.Append("</td>");
+        sb.Append("<td><h1>To Date:</h1>");
+        sb.Append("</td>");
+        sb.Append("<td><h1>" + txtToDate.Text + "</h1>");
+        sb.Append("</td>");
+        sb.Append("</tr></table></html>");
+        sb.Append(gridHTML);
+        sb.Append("\");");
+
+        sb.Append("printWin.document.close();");
+        sb.Append("printWin.focus();");
+        sb.Append("printWin.print();");
+        sb.Append("printWin.close();};");
+        sb.Append("</script>");
+        ClientScript.RegisterStartupScript(this.GetType(), "GridPrintDtls", sb.ToString());
+        GvPatientDtls.AllowPaging = true;
+        GetPaitentDtlsT();
+    }
+    protected void Calendar5_DayRender(object sender, DayRenderEventArgs e)
+    {
+
+        if (e.Day.Date > DateTime.Today)
+        {
+            e.Day.IsSelectable = false;
+            e.Cell.ForeColor = System.Drawing.Color.Gray;
+            e.Cell.Font.Strikeout = true;
+        }
+    }
+
+    protected void Calendar6_DayRender(object sender, DayRenderEventArgs e)
+    {
+        if (e.Day.Date > DateTime.Today)
+        {
+            e.Day.IsSelectable = false;
+            e.Cell.ForeColor = System.Drawing.Color.Gray;
+            e.Cell.Font.Strikeout = true;
+        }
+    }
+}
