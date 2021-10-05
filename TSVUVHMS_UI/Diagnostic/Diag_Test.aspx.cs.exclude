@@ -1,0 +1,301 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using VHMS_BL;
+using System.Data;
+using System.Web.Security;
+using System.Configuration;
+using System.Collections;
+using System.Web.UI.WebControls.WebParts;
+using System.Web.UI.HtmlControls;
+using System.Data.SqlClient;
+using System.Text;
+
+public partial class Diag_Test : System.Web.UI.Page
+{
+
+    InstutionBAL objIns = new InstutionBAL();
+
+    DiagBAL objDiag = new DiagBAL();
+    CommonFuncs objCommon = new CommonFuncs();
+    DataTable ddt;
+    decimal tot = 0, tot1 = 0;
+    string ConnKey;
+    SqlConnection con = new SqlConnection(ConfigurationSettings.AppSettings["ConnectionString"].ToString());
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        string StateCode = Session["StateCd"].ToString();
+        string UserName = Session["UsrName"].ToString();
+        //Htpp Referer Check
+        if ((Request.ServerVariables["HTTP_REFERER"] == null) || (Request.ServerVariables["HTTP_REFERER"] == ""))
+        {
+            Response.Redirect("~/Error.aspx");
+        }
+        else
+        {
+            string http_ref = Request.ServerVariables["HTTP_REFERER"].Trim();
+            string http_hos = Request.ServerVariables["HTTP_HOST"].Trim();
+            int len = http_hos.Length;
+            if (http_ref.IndexOf(http_hos, 0) < 0)
+            {
+                Response.Redirect("~/Error.aspx");
+            }
+        }
+        if (Session["Role"].ToString() == null || Session["Role"].ToString() != "4")
+        {
+            Response.Redirect("~/Error.aspx");
+        }
+        lblUsrName.Text = Session["UsrName"].ToString();
+        lblDate.Text = DateTime.Now.Day + "/" + DateTime.Now.Month + "/" + DateTime.Now.Year;
+        if (Session["RegNo"].ToString() == null)
+            Response.Redirect("~/Error.aspx");
+
+        ConnKey = Session["ConnStr"].ToString();
+        if (!IsPostBack)
+        {
+            try
+            {
+                ddt = objDiag.FetchPaitentDtlsBAL(Session["RegNo"].ToString(), ConnKey);
+                lblRegistrationNo.Text = ddt.Rows[0]["RegistrationNo"].ToString();
+                lblOwnerNm.Text = ddt.Rows[0]["Owner_Name"].ToString();
+                lblAnimal.Text = ddt.Rows[0]["AnimalTypeDesc"].ToString();
+                lblVisitId.Text = ddt.Rows[0]["VisitId"].ToString();
+                lblVisitDt.Text = ddt.Rows[0]["Reg_Dt"].ToString();
+
+                GetInsNameBAL();
+                BindData();
+                btn_Save.Visible = false;
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("~/Error.aspx");
+            }
+
+        }
+    }
+    public void GetInsNameBAL()
+    {
+        try
+        {
+            DataTable dt = new DataTable();
+            dt = objIns.GetInsNameBAL(Session["UniqueInstId"].ToString(), Session["UsrName"].ToString(), ConnKey);
+            lblInsName.Text = dt.Rows[0]["InstitutionName"].ToString();
+        }
+        catch (Exception ex)
+        {
+            Response.Redirect("~/Error.aspx");
+        }
+    }
+    protected bool Validate_Save()
+    {
+        if (chktest.SelectedValue == "")
+        {
+            objCommon.ShowAlertMessage("Select Test");
+            chktest.Focus();
+            return false;
+        }
+
+
+        return true;
+    }
+    protected void btn_Save_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            if (GvTestDtls.Rows.Count == 0)
+            {
+                objCommon.ShowAlertMessage("Select Atleast one Test");
+                return;
+            }
+
+            /*VALIDATE IF TESTS ARE ENTERTED OR NOT*/
+            if (Validate_Save())
+            {
+
+                objDiag.InsertDiagTestsBAL(Session["RegNo"].ToString(), lblTestcode.Text, Session["UsrName"].ToString(), ConnKey);
+                Session["Testcodes"] = lblTestcode.Text;
+                Response.Redirect("~/Diagnostic/Rpt_Diag_Test.aspx", false);
+
+            }
+        }
+        catch (Exception ex)
+        {
+            Response.Redirect("~/Error.aspx");
+        }
+    }
+
+
+
+    protected void BindData()
+    {
+        try
+        {
+            DataSet ds = new DataSet();
+            string cmdstr = "select TestCode,TestName from Mst_DiagTestFee";
+            SqlDataAdapter adp = new SqlDataAdapter(cmdstr, con);
+            adp.Fill(ds);
+
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                chktest.DataSource = ds;
+                chktest.DataTextField = "TestName";
+                chktest.DataValueField = "TestCode";
+                chktest.DataBind();
+            }
+        }
+        catch (Exception ex)
+        {
+            Response.Redirect("~/Error.aspx");
+        }
+    }
+
+
+    protected void chktest_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        try
+        {
+            List<String> TestID_list = new List<string>();
+            List<String> TestName_list = new List<string>();
+
+            foreach (System.Web.UI.WebControls.ListItem item in chktest.Items)
+            {
+                if (item.Selected)
+                {
+                    TestID_list.Add(item.Value);
+                    TestName_list.Add(item.Text);
+                }
+
+                lblTestcode.Text = String.Join(",", TestID_list.ToArray());
+                //lblDName.Text = String.Join(",", TestName_list.ToArray());
+            }
+        }
+        catch (Exception ex)
+        {
+            Response.Redirect("~/Error.aspx");
+        }
+    }
+
+
+    protected void GvTestDtls_RowDeleting(object sender, GridViewDeleteEventArgs e)
+    {
+        try
+        {
+            Label TestCode = (Label)GvTestDtls.Rows[e.RowIndex].FindControl("lblTcode");
+            foreach (ListItem item in chktest.Items)
+            {
+
+                if (item.Value == TestCode.Text)
+                {
+
+                    item.Selected = false;
+                    break;
+
+                }
+
+            }
+            lblTestcode.Text = TestCode.Text;
+            DataTable dt = new DataTable();
+            dt = objDiag.GetTestDtlsBAL(TestCode.Text, ConnKey);
+            GvTestDtls.Visible = true;
+            GvTestDtls.DataSource = dt;
+            GvTestDtls.DataBind();
+        }
+        catch (Exception ex)
+        {
+            Response.Redirect("~/Error.aspx");
+        }
+    }
+    protected void GvTestDtls_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+        try
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                // tot + = Convert.ToDecimal(DataBinder.Eval(e.Row.DataItem, "Amount"));
+                tot += Convert.ToDecimal(DataBinder.Eval(e.Row.DataItem, "TotalTestFee"));
+                tot1 += Convert.ToDecimal(DataBinder.Eval(e.Row.DataItem, "FeePaidByGovt"));
+            }
+            if (e.Row.RowType == DataControlRowType.Footer)
+            {
+                Label lblTotal = (Label)e.Row.FindControl("lblAmounttotal");
+                lblTotal.Text = tot.ToString();
+                Label lblGovtTotal = (Label)e.Row.FindControl("lblGovtotal");
+                lblGovtTotal.Text = tot1.ToString();
+                Label lblNotPaytotal = (Label)e.Row.FindControl("lblNotPaytotal");
+                lblNotPaytotal.Text = (Convert.ToDecimal(lblTotal.Text) - Convert.ToDecimal(lblGovtTotal.Text)).ToString();
+
+            }
+        }
+        catch (Exception ex)
+        {
+            Response.Redirect("~/Error.aspx");
+        }
+    }
+    protected void btn_Add_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            if (Validate_Save())
+            {
+                foreach (GridViewRow gr in GvTestDtls.Rows)
+                {
+                    string[] test = (lblTestcode.Text).Split(',');
+                    string tcode = ((Label)gr.FindControl("lblTcode")).Text;
+                    for (int j = 0; j < test.Length; j++)
+                    {
+                        if (tcode == test[j])
+                        {
+                            objCommon.ShowAlertMessage("Test already added");
+
+                        }
+                    }
+
+                }
+            }
+            ddt = objDiag.GetTestDtlsBAL(lblTestcode.Text, ConnKey);
+            btn_Save.Visible = true;
+            /*FETCH SELEECTED TEST DETAILS*/
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("TestCode", typeof(int));
+            dt.Columns.Add("TestName", typeof(string));
+            dt.Columns.Add("TotalTestFee", typeof(int));
+            dt.Columns.Add("FeePaidByGovt", typeof(int));
+
+            int i = 0;
+
+            foreach (GridViewRow gr in GvTestDtls.Rows)
+            {
+                dt.Rows.Add();
+                dt.Rows[i]["TestCode"] = ((Label)gr.FindControl("lblTcode")).Text;
+                dt.Rows[i]["TestName"] = ((Label)gr.FindControl("lblTname")).Text;
+                dt.Rows[i]["TotalTestFee"] = ((Label)gr.FindControl("lblAmount")).Text;
+                dt.Rows[i]["FeePaidByGovt"] = ((Label)gr.FindControl("lblPaidBygovt")).Text;
+                i++;
+            }
+            dt.Merge(ddt);
+            if (dt.Rows.Count > 0)
+            {
+
+                GvTestDtls.Visible = true;
+                GvTestDtls.DataSource = dt;
+                GvTestDtls.DataBind();
+
+
+            }
+            else
+            {
+                GvTestDtls.DataSource = new object[] { null };
+            }
+        }
+        catch (Exception ex)
+        {
+            Response.Redirect("~/Error.aspx");
+        }
+    }
+
+
+}

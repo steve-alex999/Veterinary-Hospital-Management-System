@@ -1,0 +1,172 @@
+  #notificationLink1
+        {
+            width: 22%;
+            float: left;
+            background-color: #00c0ef;
+            height: 120px;
+            margin-top: 5px;
+            text-align: center;
+            position: relative;
+        }
+        
+        
+        #notificationLink1:hover
+        {
+            background-color: #23d4ff;
+            -webkit-transform: scale(1.1, 1.1);
+            -moz-transform: scale(1.1, 1.1);
+            -ms-transform: scale(1.1, 1.1);
+            -o-transform: scale(1.1, 1.1);
+            transform: scale(1.1, 1.1);
+        }
+        
+        #notificationLink1 span
+        {
+        }
+        
+        #notificationLink1 span span
+        {
+            color: #fff;
+            display: inline-block;
+            font-size: 18px;
+            font-family: Tahoma, Geneva, sans-serif;
+        }
+        
+        #notificationLink1 span a
+        {
+            color: #fff;
+            display: inline-block;
+            font-size: 15px;
+            text-decoration: none;
+            cursor: default;
+            font-family: Tahoma, Geneva, sans-serif;
+        }
+        
+        #notificationLink2
+        {
+            width: 24%;
+            float: right;
+            background-color: #AB7D44;
+            height: 120px;
+            margin-top: 5px;
+            text-align: center;
+            position: relative;
+        }
+        
+        #notificationLink2:hover
+        {
+            background-color: #bb9769;
+            -webkit-transform: scale(1.1, 1.1);
+            -moz-transform: scale(1.1, 1.1);
+            -ms-transform: scale(1.1, 1.1);
+            -o-transform: scale(1.1, 1.1);
+            transform: scale(1.1, 1.1);
+        }
+        
+        #notificationLink2 span
+        {
+        }
+        
+        #notificationLink2 span span
+        {
+            color: #fff;
+            display: inline-block;
+            font-size: 17px;
+            font-family: Tahoma, Geneva, sans-serif;
+        }
+        
+        #notificationLink2 span a
+        {
+            color: #fff;
+            display: inline-block;
+            font-size: 14px;
+            text-decoration: none;
+            cursor: default;
+            margin-left: 50px;
+            font-family: Tahoma, Geneva, sans-serif;
+        }
+        
+        
+        #notificationLink3
+        {
+            width: 23%;
+            float: left;
+            background-color: #a1c436;
+            height: 120px;
+            margin-top: 5px;
+            text-align: center;
+            position: relative;
+        }
+        
+        #notificationLink3:hover
+        {
+            background-color: #d7d76f;
+            -webkit-transform: scale(1.1, 1.1);
+            -moz-transform: scale(1.1, 1.1);
+            -ms-transform: scale(1.1, 1.1);
+            -o-transform: scale(1.1, 1.1);
+            transform: scale(1.1, 1.1);
+        }
+        
+        #notificationLink3 span
+        {
+        }
+        
+        #notificationLink3 span span
+        {
+            color: #fff;
+            display: inline-block;
+            font-size: 17px;
+        }
+        
+        #notificationLink3 span a
+        {
+            color: #fff;
+            display: inline-block;
+            font-size: 14px;
+            text-decoration: none;
+            cursor: default;
+            margin-left: 50px;
+        }
+        #notificationLink4
+        {
+            width: 49%;
+            float: right;
+            background-color: #3D9970;
+            height: 120px;
+            margin-top: 5px;
+            text-align: center;
+            position: relative;
+        }
+        
+        #notificationLink4:hover
+        {
+            background-color: #5CB55C;
+            -webkit-transform: scale(1.1, 1.1);
+            -moz-transform: scale(1.1, 1.1);
+            -ms-transform: scale(1.1, 1.1);
+            -o-transform: scale(1.1, 1.1);
+            transform: scale(1.1, 1.1);
+        }
+        
+        #notificationLink4 span
+        {
+        }
+        
+        #notificationLink4 span span
+        {
+            color: #fff;
+            display: inline-block;
+            font-size: 17px;
+        }
+        
+        #notificationLink4 span a
+        {
+            color: #fff;
+            display: inline-block;
+            font-size: 14px;
+            text-decoration: none;
+            cursor: default;
+            margin-left: 50px;
+        }
+        
