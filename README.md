@@ -4,4 +4,4 @@ The functions of the website are:
 1. It helps farmers avail subsidies provided by the government.  
 2. It helps doctors to give their diagnosis.  
 3. It allows pharmacies to issue the required drugs. 
-4. It allows dignostic testing of animals.
+4. It allows diagnostic testing of animals.
