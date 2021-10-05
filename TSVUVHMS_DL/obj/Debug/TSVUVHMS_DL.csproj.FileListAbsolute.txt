@@ -1,0 +1,14 @@
+E:\Central Repository\TSVUVHMS\TSVUVHMS_DL\bin\Debug\TSVUVHMS_DL.dll
+E:\Central Repository\TSVUVHMS\TSVUVHMS_DL\bin\Debug\TSVUVHMS_DL.pdb
+E:\Central Repository\TSVUVHMS\TSVUVHMS_DL\obj\Debug\TSVUVHMS_DL.dll
+E:\Central Repository\TSVUVHMS\TSVUVHMS_DL\obj\Debug\TSVUVHMS_DL.pdb
+E:\Central Repository\TSVUVHMS\TSVUVHMS_DL\bin\Debug\TSVUVHMS_BE.dll
+E:\Central Repository\TSVUVHMS\TSVUVHMS_DL\bin\Debug\TSVUVHMS_BE.pdb
+E:\Central Repository\TSVUVHMS\TSVUVHMS_DL\obj\Debug\TSVUVHMS_DL.csprojResolveAssemblyReference.cache
+G:\TSVUVHMS\TSVUVHMS_DL\bin\Debug\TSVUVHMS_DL.dll
+G:\TSVUVHMS\TSVUVHMS_DL\bin\Debug\TSVUVHMS_DL.pdb
+G:\TSVUVHMS\TSVUVHMS_DL\bin\Debug\TSVUVHMS_BE.dll
+G:\TSVUVHMS\TSVUVHMS_DL\bin\Debug\TSVUVHMS_BE.pdb
+G:\TSVUVHMS\TSVUVHMS_DL\obj\Debug\TSVUVHMS_DL.csprojResolveAssemblyReference.cache
+G:\TSVUVHMS\TSVUVHMS_DL\obj\Debug\TSVUVHMS_DL.dll
+G:\TSVUVHMS\TSVUVHMS_DL\obj\Debug\TSVUVHMS_DL.pdb
