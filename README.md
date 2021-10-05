@@ -1,0 +1,2 @@
+# Veterinary-Hospital-Management-System
+The VHMS is a central government website that was made to help animal owners especially farmers get the necessary treatment for their livestock and pets. It also allows them to avail subsidies provided by the government.  3. The website also helps doctors to give their diagnosis.  4. The website also allows pharmacy to issue the required drugs. 5. The website also allows dignostic testing of animals.
