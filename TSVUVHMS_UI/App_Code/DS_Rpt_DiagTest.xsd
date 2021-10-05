@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DS_Rpt_DiagTest" targetNamespace="http://tempuri.org/DS_Rpt_DiagTest.xsd" xmlns:mstns="http://tempuri.org/DS_Rpt_DiagTest.xsd" xmlns="http://tempuri.org/DS_Rpt_DiagTest.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="EVHMSConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="EVHMSConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.EVHMSConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="EVHMSConnectionString1" IsAppSettingsProperty="true" Modifier="Assembly" Name="EVHMSConnectionString1 (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.EVHMSConnectionString1.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DS_Rpt_DiagTest" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="DS_Rpt_DiagTest" msprop:Generator_UserDSName="DS_Rpt_DiagTest">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="FetchTestDtls_DiagTest" msprop:Generator_TableClassName="FetchTestDtls_DiagTestDataTable" msprop:Generator_TableVarName="tableFetchTestDtls_DiagTest" msprop:Generator_TablePropName="FetchTestDtls_DiagTest" msprop:Generator_RowDeletingName="FetchTestDtls_DiagTestRowDeleting" msprop:Generator_RowChangingName="FetchTestDtls_DiagTestRowChanging" msprop:Generator_RowEvHandlerName="FetchTestDtls_DiagTestRowChangeEventHandler" msprop:Generator_RowDeletedName="FetchTestDtls_DiagTestRowDeleted" msprop:Generator_UserTableName="FetchTestDtls_DiagTest" msprop:Generator_RowChangedName="FetchTestDtls_DiagTestRowChanged" msprop:Generator_RowEvArgName="FetchTestDtls_DiagTestRowChangeEvent" msprop:Generator_RowClassName="FetchTestDtls_DiagTestRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="TestCode" msprop:Generator_ColumnVarNameInTable="columnTestCode" msprop:Generator_ColumnPropNameInRow="TestCode" msprop:Generator_ColumnPropNameInTable="TestCodeColumn" msprop:Generator_UserColumnName="TestCode" type="xs:int" minOccurs="0" />
+              <xs:element name="FeePaid" msprop:Generator_ColumnVarNameInTable="columnFeePaid" msprop:Generator_ColumnPropNameInRow="FeePaid" msprop:Generator_ColumnPropNameInTable="FeePaidColumn" msprop:Generator_UserColumnName="FeePaid" type="xs:int" minOccurs="0" />
+              <xs:element name="TestName" msprop:Generator_ColumnVarNameInTable="columnTestName" msprop:Generator_ColumnPropNameInRow="TestName" msprop:Generator_ColumnPropNameInTable="TestNameColumn" msprop:Generator_UserColumnName="TestName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ExemptedCategory" msprop:Generator_ColumnVarNameInTable="columnExemptedCategory" msprop:Generator_ColumnPropNameInRow="ExemptedCategory" msprop:Generator_ColumnPropNameInTable="ExemptedCategoryColumn" msprop:Generator_UserColumnName="ExemptedCategory" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FeePaidByGovt" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnFeePaidByGovt" msprop:Generator_ColumnPropNameInRow="FeePaidByGovt" msprop:Generator_ColumnPropNameInTable="FeePaidByGovtColumn" msprop:Generator_UserColumnName="FeePaidByGovt" type="xs:int" minOccurs="0" />
+              <xs:element name="TotalTestFee" msprop:Generator_ColumnVarNameInTable="columnTotalTestFee" msprop:Generator_ColumnPropNameInRow="TotalTestFee" msprop:Generator_ColumnPropNameInTable="TotalTestFeeColumn" msprop:Generator_UserColumnName="TotalTestFee" type="xs:int" minOccurs="0" />
+              <xs:element name="RegistrationNo" msprop:Generator_ColumnVarNameInTable="columnRegistrationNo" msprop:Generator_ColumnPropNameInRow="RegistrationNo" msprop:Generator_ColumnPropNameInTable="RegistrationNoColumn" msprop:Generator_UserColumnName="RegistrationNo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Owner_Name" msprop:Generator_ColumnVarNameInTable="columnOwner_Name" msprop:Generator_ColumnPropNameInRow="Owner_Name" msprop:Generator_ColumnPropNameInTable="Owner_NameColumn" msprop:Generator_UserColumnName="Owner_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AnimalTypeDesc" msprop:Generator_ColumnVarNameInTable="columnAnimalTypeDesc" msprop:Generator_ColumnPropNameInRow="AnimalTypeDesc" msprop:Generator_ColumnPropNameInTable="AnimalTypeDescColumn" msprop:Generator_UserColumnName="AnimalTypeDesc" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="InstitutionName" msprop:Generator_ColumnVarNameInTable="columnInstitutionName" msprop:Generator_ColumnPropNameInRow="InstitutionName" msprop:Generator_ColumnPropNameInTable="InstitutionNameColumn" msprop:Generator_UserColumnName="InstitutionName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TestDate" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTestDate" msprop:Generator_ColumnPropNameInRow="TestDate" msprop:Generator_ColumnPropNameInTable="TestDateColumn" msprop:Generator_UserColumnName="TestDate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:FetchTestDtls_DiagTest" />
+      <xs:field xpath="mstns:RegistrationNo" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

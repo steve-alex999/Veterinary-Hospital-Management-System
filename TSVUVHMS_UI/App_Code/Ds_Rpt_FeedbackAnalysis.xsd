@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Ds_Rpt_FeedbackAnalysis" targetNamespace="http://tempuri.org/Ds_Rpt_FeedbackAnalysis.xsd" xmlns:mstns="http://tempuri.org/Ds_Rpt_FeedbackAnalysis.xsd" xmlns="http://tempuri.org/Ds_Rpt_FeedbackAnalysis.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="EVHMSConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="EVHMSConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.EVHMSConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="EVHMSConnectionString1" IsAppSettingsProperty="true" Modifier="Assembly" Name="EVHMSConnectionString1 (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.EVHMSConnectionString1.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Ds_Rpt_FeedbackAnalysis" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="Ds_Rpt_FeedbackAnalysis" msprop:Generator_UserDSName="Ds_Rpt_FeedbackAnalysis">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Rpt_Feedback_Analysis" msprop:Generator_TableClassName="Rpt_Feedback_AnalysisDataTable" msprop:Generator_TableVarName="tableRpt_Feedback_Analysis" msprop:Generator_TablePropName="Rpt_Feedback_Analysis" msprop:Generator_RowDeletingName="Rpt_Feedback_AnalysisRowDeleting" msprop:Generator_RowChangingName="Rpt_Feedback_AnalysisRowChanging" msprop:Generator_RowEvHandlerName="Rpt_Feedback_AnalysisRowChangeEventHandler" msprop:Generator_RowDeletedName="Rpt_Feedback_AnalysisRowDeleted" msprop:Generator_UserTableName="Rpt_Feedback_Analysis" msprop:Generator_RowChangedName="Rpt_Feedback_AnalysisRowChanged" msprop:Generator_RowEvArgName="Rpt_Feedback_AnalysisRowChangeEvent" msprop:Generator_RowClassName="Rpt_Feedback_AnalysisRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="InsName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnInsName" msprop:Generator_ColumnPropNameInRow="InsName" msprop:Generator_ColumnPropNameInTable="InsNameColumn" msprop:Generator_UserColumnName="InsName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FBFromDt" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnFBFromDt" msprop:Generator_ColumnPropNameInRow="FBFromDt" msprop:Generator_ColumnPropNameInTable="FBFromDtColumn" msprop:Generator_UserColumnName="FBFromDt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FBToDt" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnFBToDt" msprop:Generator_ColumnPropNameInRow="FBToDt" msprop:Generator_ColumnPropNameInTable="FBToDtColumn" msprop:Generator_UserColumnName="FBToDt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tot_FeedbacksRecorded" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTot_FeedbacksRecorded" msprop:Generator_ColumnPropNameInRow="Tot_FeedbacksRecorded" msprop:Generator_ColumnPropNameInTable="Tot_FeedbacksRecordedColumn" msprop:Generator_UserColumnName="Tot_FeedbacksRecorded" type="xs:int" minOccurs="0" />
+              <xs:element name="Ex_RegFee" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnEx_RegFee" msprop:Generator_ColumnPropNameInRow="Ex_RegFee" msprop:Generator_ColumnPropNameInTable="Ex_RegFeeColumn" msprop:Generator_UserColumnName="Ex_RegFee" type="xs:int" minOccurs="0" />
+              <xs:element name="Ex_RegFeeAmt" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnEx_RegFeeAmt" msprop:Generator_ColumnPropNameInRow="Ex_RegFeeAmt" msprop:Generator_ColumnPropNameInTable="Ex_RegFeeAmtColumn" msprop:Generator_UserColumnName="Ex_RegFeeAmt" type="xs:int" minOccurs="0" />
+              <xs:element name="Ex_TestFee" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnEx_TestFee" msprop:Generator_ColumnPropNameInRow="Ex_TestFee" msprop:Generator_ColumnPropNameInTable="Ex_TestFeeColumn" msprop:Generator_UserColumnName="Ex_TestFee" type="xs:int" minOccurs="0" />
+              <xs:element name="Ex_TestFeeAmt" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnEx_TestFeeAmt" msprop:Generator_ColumnPropNameInRow="Ex_TestFeeAmt" msprop:Generator_ColumnPropNameInTable="Ex_TestFeeAmtColumn" msprop:Generator_UserColumnName="Ex_TestFeeAmt" type="xs:int" minOccurs="0" />
+              <xs:element name="FreeDrugsNotIssued" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnFreeDrugsNotIssued" msprop:Generator_ColumnPropNameInRow="FreeDrugsNotIssued" msprop:Generator_ColumnPropNameInTable="FreeDrugsNotIssuedColumn" msprop:Generator_UserColumnName="FreeDrugsNotIssued" type="xs:int" minOccurs="0" />
+              <xs:element name="DrugsPurFrmOutside" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDrugsPurFrmOutside" msprop:Generator_ColumnPropNameInRow="DrugsPurFrmOutside" msprop:Generator_ColumnPropNameInTable="DrugsPurFrmOutsideColumn" msprop:Generator_UserColumnName="DrugsPurFrmOutside" type="xs:int" minOccurs="0" />
+              <xs:element name="Reg_G" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnReg_G" msprop:Generator_ColumnPropNameInRow="Reg_G" msprop:Generator_ColumnPropNameInTable="Reg_GColumn" msprop:Generator_UserColumnName="Reg_G" type="xs:int" minOccurs="0" />
+              <xs:element name="Reg_S" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnReg_S" msprop:Generator_ColumnPropNameInRow="Reg_S" msprop:Generator_ColumnPropNameInTable="Reg_SColumn" msprop:Generator_UserColumnName="Reg_S" type="xs:int" minOccurs="0" />
+              <xs:element name="Reg_P" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnReg_P" msprop:Generator_ColumnPropNameInRow="Reg_P" msprop:Generator_ColumnPropNameInTable="Reg_PColumn" msprop:Generator_UserColumnName="Reg_P" type="xs:int" minOccurs="0" />
+              <xs:element name="Doc_G" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDoc_G" msprop:Generator_ColumnPropNameInRow="Doc_G" msprop:Generator_ColumnPropNameInTable="Doc_GColumn" msprop:Generator_UserColumnName="Doc_G" type="xs:int" minOccurs="0" />
+              <xs:element name="Doc_S" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDoc_S" msprop:Generator_ColumnPropNameInRow="Doc_S" msprop:Generator_ColumnPropNameInTable="Doc_SColumn" msprop:Generator_UserColumnName="Doc_S" type="xs:int" minOccurs="0" />
+              <xs:element name="Doc_P" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDoc_P" msprop:Generator_ColumnPropNameInRow="Doc_P" msprop:Generator_ColumnPropNameInTable="Doc_PColumn" msprop:Generator_UserColumnName="Doc_P" type="xs:int" minOccurs="0" />
+              <xs:element name="CH_G" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCH_G" msprop:Generator_ColumnPropNameInRow="CH_G" msprop:Generator_ColumnPropNameInTable="CH_GColumn" msprop:Generator_UserColumnName="CH_G" type="xs:int" minOccurs="0" />
+              <xs:element name="CH_S" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCH_S" msprop:Generator_ColumnPropNameInRow="CH_S" msprop:Generator_ColumnPropNameInTable="CH_SColumn" msprop:Generator_UserColumnName="CH_S" type="xs:int" minOccurs="0" />
+              <xs:element name="CH_P" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCH_P" msprop:Generator_ColumnPropNameInRow="CH_P" msprop:Generator_ColumnPropNameInTable="CH_PColumn" msprop:Generator_UserColumnName="CH_P" type="xs:int" minOccurs="0" />
+              <xs:element name="OE_G" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnOE_G" msprop:Generator_ColumnPropNameInRow="OE_G" msprop:Generator_ColumnPropNameInTable="OE_GColumn" msprop:Generator_UserColumnName="OE_G" type="xs:int" minOccurs="0" />
+              <xs:element name="OE_S" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnOE_S" msprop:Generator_ColumnPropNameInRow="OE_S" msprop:Generator_ColumnPropNameInTable="OE_SColumn" msprop:Generator_UserColumnName="OE_S" type="xs:int" minOccurs="0" />
+              <xs:element name="OE_P" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnOE_P" msprop:Generator_ColumnPropNameInRow="OE_P" msprop:Generator_ColumnPropNameInTable="OE_PColumn" msprop:Generator_UserColumnName="OE_P" type="xs:int" minOccurs="0" />
+              <xs:element name="Phar_G" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPhar_G" msprop:Generator_ColumnPropNameInRow="Phar_G" msprop:Generator_ColumnPropNameInTable="Phar_GColumn" msprop:Generator_UserColumnName="Phar_G" type="xs:int" minOccurs="0" />
+              <xs:element name="Phar_S" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPhar_S" msprop:Generator_ColumnPropNameInRow="Phar_S" msprop:Generator_ColumnPropNameInTable="Phar_SColumn" msprop:Generator_UserColumnName="Phar_S" type="xs:int" minOccurs="0" />
+              <xs:element name="Phar_P" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPhar_P" msprop:Generator_ColumnPropNameInRow="Phar_P" msprop:Generator_ColumnPropNameInTable="Phar_PColumn" msprop:Generator_UserColumnName="Phar_P" type="xs:int" minOccurs="0" />
+              <xs:element name="Ex_RegFee_P" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnEx_RegFee_P" msprop:Generator_ColumnPropNameInRow="Ex_RegFee_P" msprop:Generator_ColumnPropNameInTable="Ex_RegFee_PColumn" msprop:Generator_UserColumnName="Ex_RegFee_P" type="xs:int" minOccurs="0" />
+              <xs:element name="Ex_TestFee_P" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnEx_TestFee_P" msprop:Generator_ColumnPropNameInRow="Ex_TestFee_P" msprop:Generator_ColumnPropNameInTable="Ex_TestFee_PColumn" msprop:Generator_UserColumnName="Ex_TestFee_P" type="xs:int" minOccurs="0" />
+              <xs:element name="FreeDrugsNotIssued_P" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnFreeDrugsNotIssued_P" msprop:Generator_ColumnPropNameInRow="FreeDrugsNotIssued_P" msprop:Generator_ColumnPropNameInTable="FreeDrugsNotIssued_PColumn" msprop:Generator_UserColumnName="FreeDrugsNotIssued_P" type="xs:int" minOccurs="0" />
+              <xs:element name="DrugsPurFrmOutside_P" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDrugsPurFrmOutside_P" msprop:Generator_ColumnPropNameInRow="DrugsPurFrmOutside_P" msprop:Generator_ColumnPropNameInTable="DrugsPurFrmOutside_PColumn" msprop:Generator_UserColumnName="DrugsPurFrmOutside_P" type="xs:int" minOccurs="0" />
+              <xs:element name="Reg_G_P" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnReg_G_P" msprop:Generator_ColumnPropNameInRow="Reg_G_P" msprop:Generator_ColumnPropNameInTable="Reg_G_PColumn" msprop:Generator_UserColumnName="Reg_G_P" type="xs:int" minOccurs="0" />
+              <xs:element name="Reg_S_P" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnReg_S_P" msprop:Generator_ColumnPropNameInRow="Reg_S_P" msprop:Generator_ColumnPropNameInTable="Reg_S_PColumn" msprop:Generator_UserColumnName="Reg_S_P" type="xs:int" minOccurs="0" />
+              <xs:element name="Reg_P_P" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnReg_P_P" msprop:Generator_ColumnPropNameInRow="Reg_P_P" msprop:Generator_ColumnPropNameInTable="Reg_P_PColumn" msprop:Generator_UserColumnName="Reg_P_P" type="xs:int" minOccurs="0" />
+              <xs:element name="Doc_G_P" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDoc_G_P" msprop:Generator_ColumnPropNameInRow="Doc_G_P" msprop:Generator_ColumnPropNameInTable="Doc_G_PColumn" msprop:Generator_UserColumnName="Doc_G_P" type="xs:int" minOccurs="0" />
+              <xs:element name="Doc_S_P" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDoc_S_P" msprop:Generator_ColumnPropNameInRow="Doc_S_P" msprop:Generator_ColumnPropNameInTable="Doc_S_PColumn" msprop:Generator_UserColumnName="Doc_S_P" type="xs:int" minOccurs="0" />
+              <xs:element name="Doc_P_P" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDoc_P_P" msprop:Generator_ColumnPropNameInRow="Doc_P_P" msprop:Generator_ColumnPropNameInTable="Doc_P_PColumn" msprop:Generator_UserColumnName="Doc_P_P" type="xs:int" minOccurs="0" />
+              <xs:element name="CH_G_P" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCH_G_P" msprop:Generator_ColumnPropNameInRow="CH_G_P" msprop:Generator_ColumnPropNameInTable="CH_G_PColumn" msprop:Generator_UserColumnName="CH_G_P" type="xs:int" minOccurs="0" />
+              <xs:element name="CH_S_P" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCH_S_P" msprop:Generator_ColumnPropNameInRow="CH_S_P" msprop:Generator_ColumnPropNameInTable="CH_S_PColumn" msprop:Generator_UserColumnName="CH_S_P" type="xs:int" minOccurs="0" />
+              <xs:element name="CH_P_P" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCH_P_P" msprop:Generator_ColumnPropNameInRow="CH_P_P" msprop:Generator_ColumnPropNameInTable="CH_P_PColumn" msprop:Generator_UserColumnName="CH_P_P" type="xs:int" minOccurs="0" />
+              <xs:element name="OE_G_P" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnOE_G_P" msprop:Generator_ColumnPropNameInRow="OE_G_P" msprop:Generator_ColumnPropNameInTable="OE_G_PColumn" msprop:Generator_UserColumnName="OE_G_P" type="xs:int" minOccurs="0" />
+              <xs:element name="OE_S_P" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnOE_S_P" msprop:Generator_ColumnPropNameInRow="OE_S_P" msprop:Generator_ColumnPropNameInTable="OE_S_PColumn" msprop:Generator_UserColumnName="OE_S_P" type="xs:int" minOccurs="0" />
+              <xs:element name="OE_P_P" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnOE_P_P" msprop:Generator_ColumnPropNameInRow="OE_P_P" msprop:Generator_ColumnPropNameInTable="OE_P_PColumn" msprop:Generator_UserColumnName="OE_P_P" type="xs:int" minOccurs="0" />
+              <xs:element name="Phar_G_P" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPhar_G_P" msprop:Generator_ColumnPropNameInRow="Phar_G_P" msprop:Generator_ColumnPropNameInTable="Phar_G_PColumn" msprop:Generator_UserColumnName="Phar_G_P" type="xs:int" minOccurs="0" />
+              <xs:element name="Phar_S_P" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPhar_S_P" msprop:Generator_ColumnPropNameInRow="Phar_S_P" msprop:Generator_ColumnPropNameInTable="Phar_S_PColumn" msprop:Generator_UserColumnName="Phar_S_P" type="xs:int" minOccurs="0" />
+              <xs:element name="Phar_P_P" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPhar_P_P" msprop:Generator_ColumnPropNameInRow="Phar_P_P" msprop:Generator_ColumnPropNameInTable="Phar_P_PColumn" msprop:Generator_UserColumnName="Phar_P_P" type="xs:int" minOccurs="0" />
+              <xs:element name="AnyOtherAmtPaidNos" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnAnyOtherAmtPaidNos" msprop:Generator_ColumnPropNameInRow="AnyOtherAmtPaidNos" msprop:Generator_ColumnPropNameInTable="AnyOtherAmtPaidNosColumn" msprop:Generator_UserColumnName="AnyOtherAmtPaidNos" type="xs:int" minOccurs="0" />
+              <xs:element name="OthrAmtPaid_P" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnOthrAmtPaid_P" msprop:Generator_ColumnPropNameInRow="OthrAmtPaid_P" msprop:Generator_ColumnPropNameInTable="OthrAmtPaid_PColumn" msprop:Generator_UserColumnName="OthrAmtPaid_P" type="xs:int" minOccurs="0" />
+              <xs:element name="OtherAmtPaidinRs" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnOtherAmtPaidinRs" msprop:Generator_ColumnPropNameInRow="OtherAmtPaidinRs" msprop:Generator_ColumnPropNameInTable="OtherAmtPaidinRsColumn" msprop:Generator_UserColumnName="OtherAmtPaidinRs" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

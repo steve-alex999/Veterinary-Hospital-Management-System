@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Ds_Rpt_Diag_MonthlyAbstract" targetNamespace="http://tempuri.org/Ds_Rpt_Diag_MonthlyAbstract.xsd" xmlns:mstns="http://tempuri.org/Ds_Rpt_Diag_MonthlyAbstract.xsd" xmlns="http://tempuri.org/Ds_Rpt_Diag_MonthlyAbstract.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="EVHMSConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="EVHMSConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.EVHMSConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="EVHMSConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="EVHMSConnectionString1 (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.EVHMSConnectionString1.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Ds_Rpt_Diag_MonthlyAbstract" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="Ds_Rpt_Diag_MonthlyAbstract" msprop:Generator_UserDSName="Ds_Rpt_Diag_MonthlyAbstract">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Rpt_Diag_Abstract" msprop:Generator_TableClassName="Rpt_Diag_AbstractDataTable" msprop:Generator_TableVarName="tableRpt_Diag_Abstract" msprop:Generator_TablePropName="Rpt_Diag_Abstract" msprop:Generator_RowDeletingName="Rpt_Diag_AbstractRowDeleting" msprop:Generator_RowChangingName="Rpt_Diag_AbstractRowChanging" msprop:Generator_RowEvHandlerName="Rpt_Diag_AbstractRowChangeEventHandler" msprop:Generator_RowDeletedName="Rpt_Diag_AbstractRowDeleted" msprop:Generator_UserTableName="Rpt_Diag_Abstract" msprop:Generator_RowChangedName="Rpt_Diag_AbstractRowChanged" msprop:Generator_RowEvArgName="Rpt_Diag_AbstractRowChangeEvent" msprop:Generator_RowClassName="Rpt_Diag_AbstractRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Fromyear" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnFromyear" msprop:Generator_ColumnPropNameInRow="Fromyear" msprop:Generator_ColumnPropNameInTable="FromyearColumn" msprop:Generator_UserColumnName="Fromyear" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FromMonth" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnFromMonth" msprop:Generator_ColumnPropNameInRow="FromMonth" msprop:Generator_ColumnPropNameInTable="FromMonthColumn" msprop:Generator_UserColumnName="FromMonth" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ToYear" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnToYear" msprop:Generator_ColumnPropNameInRow="ToYear" msprop:Generator_ColumnPropNameInTable="ToYearColumn" msprop:Generator_UserColumnName="ToYear" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ToMnth" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnToMnth" msprop:Generator_ColumnPropNameInRow="ToMnth" msprop:Generator_ColumnPropNameInTable="ToMnthColumn" msprop:Generator_UserColumnName="ToMnth" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="InstitutionName" msprop:Generator_ColumnVarNameInTable="columnInstitutionName" msprop:Generator_ColumnPropNameInRow="InstitutionName" msprop:Generator_ColumnPropNameInTable="InstitutionNameColumn" msprop:Generator_UserColumnName="InstitutionName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TestName" msprop:Generator_ColumnVarNameInTable="columnTestName" msprop:Generator_ColumnPropNameInRow="TestName" msprop:Generator_ColumnPropNameInTable="TestNameColumn" msprop:Generator_UserColumnName="TestName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FeePaid" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnFeePaid" msprop:Generator_ColumnPropNameInRow="FeePaid" msprop:Generator_ColumnPropNameInTable="FeePaidColumn" msprop:Generator_UserColumnName="FeePaid" type="xs:int" minOccurs="0" />
+              <xs:element name="TestCnt" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTestCnt" msprop:Generator_ColumnPropNameInRow="TestCnt" msprop:Generator_ColumnPropNameInTable="TestCntColumn" msprop:Generator_UserColumnName="TestCnt" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DS_Rpt_DB_TotDrugsIssued" targetNamespace="http://tempuri.org/DS_Rpt_DB_TotDrugsIssued.xsd" xmlns:mstns="http://tempuri.org/DS_Rpt_DB_TotDrugsIssued.xsd" xmlns="http://tempuri.org/DS_Rpt_DB_TotDrugsIssued.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="2" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="EVHMSConnectionString1" IsAppSettingsProperty="true" Modifier="Assembly" Name="EVHMSConnectionString1 (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.EVHMSConnectionString1.ConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="EVHMSConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="EVHMSConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.EVHMSConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="vhms_ukConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="vhms_ukConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.vhms_ukConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DS_Rpt_DB_TotDrugsIssued" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="DS_Rpt_DB_TotDrugsIssued" msprop:Generator_UserDSName="DS_Rpt_DB_TotDrugsIssued">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Rpt_DB_TotDrugsIssued" msprop:Generator_TableClassName="Rpt_DB_TotDrugsIssuedDataTable" msprop:Generator_TableVarName="tableRpt_DB_TotDrugsIssued" msprop:Generator_TablePropName="Rpt_DB_TotDrugsIssued" msprop:Generator_RowDeletingName="Rpt_DB_TotDrugsIssuedRowDeleting" msprop:Generator_RowChangingName="Rpt_DB_TotDrugsIssuedRowChanging" msprop:Generator_RowEvHandlerName="Rpt_DB_TotDrugsIssuedRowChangeEventHandler" msprop:Generator_RowDeletedName="Rpt_DB_TotDrugsIssuedRowDeleted" msprop:Generator_UserTableName="Rpt_DB_TotDrugsIssued" msprop:Generator_RowChangedName="Rpt_DB_TotDrugsIssuedRowChanged" msprop:Generator_RowEvArgName="Rpt_DB_TotDrugsIssuedRowChangeEvent" msprop:Generator_RowClassName="Rpt_DB_TotDrugsIssuedRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="StateName" msprop:Generator_ColumnVarNameInTable="columnStateName" msprop:Generator_ColumnPropNameInRow="StateName" msprop:Generator_ColumnPropNameInTable="StateNameColumn" msprop:Generator_UserColumnName="StateName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DistName" msprop:Generator_ColumnVarNameInTable="columnDistName" msprop:Generator_ColumnPropNameInRow="DistName" msprop:Generator_ColumnPropNameInTable="DistNameColumn" msprop:Generator_UserColumnName="DistName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MandName" msprop:Generator_ColumnVarNameInTable="columnMandName" msprop:Generator_ColumnPropNameInRow="MandName" msprop:Generator_ColumnPropNameInTable="MandNameColumn" msprop:Generator_UserColumnName="MandName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="InstitutionName" msprop:Generator_ColumnVarNameInTable="columnInstitutionName" msprop:Generator_ColumnPropNameInRow="InstitutionName" msprop:Generator_ColumnPropNameInTable="InstitutionNameColumn" msprop:Generator_UserColumnName="InstitutionName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DrugName" msprop:Generator_ColumnVarNameInTable="columnDrugName" msprop:Generator_ColumnPropNameInRow="DrugName" msprop:Generator_ColumnPropNameInTable="DrugNameColumn" msprop:Generator_UserColumnName="DrugName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="QuantityIssued" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnQuantityIssued" msprop:Generator_ColumnPropNameInRow="QuantityIssued" msprop:Generator_ColumnPropNameInTable="QuantityIssuedColumn" msprop:Generator_UserColumnName="QuantityIssued" type="xs:decimal" minOccurs="0" />
+              <xs:element name="DrugsIssued" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDrugsIssued" msprop:Generator_ColumnPropNameInRow="DrugsIssued" msprop:Generator_ColumnPropNameInTable="DrugsIssuedColumn" msprop:Generator_UserColumnName="DrugsIssued" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

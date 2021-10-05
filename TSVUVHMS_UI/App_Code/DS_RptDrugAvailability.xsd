@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DS_RptDrugAvailability" targetNamespace="http://tempuri.org/DS_RptDrugAvailability.xsd" xmlns:mstns="http://tempuri.org/DS_RptDrugAvailability.xsd" xmlns="http://tempuri.org/DS_RptDrugAvailability.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="VHMSConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="VHMSConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.VHMSConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DS_RptDrugAvailability" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="DS_RptDrugAvailability" msprop:Generator_UserDSName="DS_RptDrugAvailability">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Rpt_DrugsAvailability_PharmacyWs" msprop:Generator_TableClassName="Rpt_DrugsAvailability_PharmacyWsDataTable" msprop:Generator_TableVarName="tableRpt_DrugsAvailability_PharmacyWs" msprop:Generator_TablePropName="Rpt_DrugsAvailability_PharmacyWs" msprop:Generator_RowDeletingName="Rpt_DrugsAvailability_PharmacyWsRowDeleting" msprop:Generator_RowChangingName="Rpt_DrugsAvailability_PharmacyWsRowChanging" msprop:Generator_RowEvHandlerName="Rpt_DrugsAvailability_PharmacyWsRowChangeEventHandler" msprop:Generator_RowDeletedName="Rpt_DrugsAvailability_PharmacyWsRowDeleted" msprop:Generator_UserTableName="Rpt_DrugsAvailability_PharmacyWs" msprop:Generator_RowChangedName="Rpt_DrugsAvailability_PharmacyWsRowChanged" msprop:Generator_RowEvArgName="Rpt_DrugsAvailability_PharmacyWsRowChangeEvent" msprop:Generator_RowClassName="Rpt_DrugsAvailability_PharmacyWsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DrugName" msprop:Generator_ColumnVarNameInTable="columnDrugName" msprop:Generator_ColumnPropNameInRow="DrugName" msprop:Generator_ColumnPropNameInTable="DrugNameColumn" msprop:Generator_UserColumnName="DrugName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BatchNo" msprop:Generator_ColumnVarNameInTable="columnBatchNo" msprop:Generator_ColumnPropNameInRow="BatchNo" msprop:Generator_ColumnPropNameInTable="BatchNoColumn" msprop:Generator_UserColumnName="BatchNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Unit" msprop:Generator_ColumnVarNameInTable="columnUnit" msprop:Generator_ColumnPropNameInRow="Unit" msprop:Generator_ColumnPropNameInTable="UnitColumn" msprop:Generator_UserColumnName="Unit" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ExpiryDate" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnExpiryDate" msprop:Generator_ColumnPropNameInRow="ExpiryDate" msprop:Generator_ColumnPropNameInTable="ExpiryDateColumn" msprop:Generator_UserColumnName="ExpiryDate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ExpiryDateOrder" msprop:Generator_ColumnVarNameInTable="columnExpiryDateOrder" msprop:Generator_ColumnPropNameInRow="ExpiryDateOrder" msprop:Generator_ColumnPropNameInTable="ExpiryDateOrderColumn" msprop:Generator_UserColumnName="ExpiryDateOrder" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Quantity" msprop:Generator_ColumnVarNameInTable="columnQuantity" msprop:Generator_ColumnPropNameInRow="Quantity" msprop:Generator_ColumnPropNameInTable="QuantityColumn" msprop:Generator_UserColumnName="Quantity" type="xs:int" minOccurs="0" />
+              <xs:element name="QuantityInDays" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnQuantityInDays" msprop:Generator_ColumnPropNameInRow="QuantityInDays" msprop:Generator_ColumnPropNameInTable="QuantityInDaysColumn" msprop:Generator_UserColumnName="QuantityInDays" type="xs:decimal" minOccurs="0" />
+              <xs:element name="InstitutionName" msprop:Generator_ColumnVarNameInTable="columnInstitutionName" msprop:Generator_ColumnPropNameInRow="InstitutionName" msprop:Generator_ColumnPropNameInTable="InstitutionNameColumn" msprop:Generator_UserColumnName="InstitutionName" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

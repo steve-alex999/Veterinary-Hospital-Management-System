@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Ds_Animal_tot" targetNamespace="http://tempuri.org/Ds_Animal_tot.xsd" xmlns:mstns="http://tempuri.org/Ds_Animal_tot.xsd" xmlns="http://tempuri.org/Ds_Animal_tot.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="EVHMSConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="EVHMSConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.EVHMSConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="EVHMSConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="EVHMSConnectionString1 (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.EVHMSConnectionString1.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Ds_Animal_tot" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="Ds_Animal_tot" msprop:Generator_UserDSName="Ds_Animal_tot">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="AnimalDetalis_RDLC" msprop:Generator_TableClassName="AnimalDetalis_RDLCDataTable" msprop:Generator_TableVarName="tableAnimalDetalis_RDLC" msprop:Generator_RowChangedName="AnimalDetalis_RDLCRowChanged" msprop:Generator_TablePropName="AnimalDetalis_RDLC" msprop:Generator_RowDeletingName="AnimalDetalis_RDLCRowDeleting" msprop:Generator_RowChangingName="AnimalDetalis_RDLCRowChanging" msprop:Generator_RowEvHandlerName="AnimalDetalis_RDLCRowChangeEventHandler" msprop:Generator_RowDeletedName="AnimalDetalis_RDLCRowDeleted" msprop:Generator_RowClassName="AnimalDetalis_RDLCRow" msprop:Generator_UserTableName="AnimalDetalis_RDLC" msprop:Generator_RowEvArgName="AnimalDetalis_RDLCRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="AnimalTypeDesc" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnAnimalTypeDesc" msprop:Generator_ColumnPropNameInRow="AnimalTypeDesc" msprop:Generator_ColumnPropNameInTable="AnimalTypeDescColumn" msprop:Generator_UserColumnName="AnimalTypeDesc" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AnimalTYpeCode" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnAnimalTYpeCode" msprop:Generator_ColumnPropNameInRow="AnimalTYpeCode" msprop:Generator_ColumnPropNameInTable="AnimalTYpeCodeColumn" msprop:Generator_UserColumnName="AnimalTYpeCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Newtot" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnNewtot" msprop:Generator_ColumnPropNameInRow="Newtot" msprop:Generator_ColumnPropNameInTable="NewtotColumn" msprop:Generator_UserColumnName="Newtot" type="xs:long" minOccurs="0" />
+              <xs:element name="ReVisitTot" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnReVisitTot" msprop:Generator_ColumnPropNameInRow="ReVisitTot" msprop:Generator_ColumnPropNameInTable="ReVisitTotColumn" msprop:Generator_UserColumnName="ReVisitTot" type="xs:long" minOccurs="0" />
+              <xs:element name="InstitutionName" msprop:Generator_ColumnVarNameInTable="columnInstitutionName" msprop:Generator_ColumnPropNameInRow="InstitutionName" msprop:Generator_ColumnPropNameInTable="InstitutionNameColumn" msprop:Generator_UserColumnName="InstitutionName" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Ds_Rpt_DA_PatientVisits" targetNamespace="http://tempuri.org/Ds_Rpt_DA_PatientVisits.xsd" xmlns:mstns="http://tempuri.org/Ds_Rpt_DA_PatientVisits.xsd" xmlns="http://tempuri.org/Ds_Rpt_DA_PatientVisits.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="EVHMSConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="EVHMSConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.EVHMSConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="EVHMSConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="EVHMSConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.EVHMSConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Ds_Rpt_DA_PatientVisits" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="Ds_Rpt_DA_PatientVisits" msprop:Generator_UserDSName="Ds_Rpt_DA_PatientVisits">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Rpt_DataAnalysis_Regs" msprop:Generator_TableClassName="Rpt_DataAnalysis_RegsDataTable" msprop:Generator_TableVarName="tableRpt_DataAnalysis_Regs" msprop:Generator_TablePropName="Rpt_DataAnalysis_Regs" msprop:Generator_RowDeletingName="Rpt_DataAnalysis_RegsRowDeleting" msprop:Generator_RowChangingName="Rpt_DataAnalysis_RegsRowChanging" msprop:Generator_RowEvHandlerName="Rpt_DataAnalysis_RegsRowChangeEventHandler" msprop:Generator_RowDeletedName="Rpt_DataAnalysis_RegsRowDeleted" msprop:Generator_UserTableName="Rpt_DataAnalysis_Regs" msprop:Generator_RowChangedName="Rpt_DataAnalysis_RegsRowChanged" msprop:Generator_RowEvArgName="Rpt_DataAnalysis_RegsRowChangeEvent" msprop:Generator_RowClassName="Rpt_DataAnalysis_RegsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="InstitutionName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnInstitutionName" msprop:Generator_ColumnPropNameInRow="InstitutionName" msprop:Generator_ColumnPropNameInTable="InstitutionNameColumn" msprop:Generator_UserColumnName="InstitutionName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FromDt" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnFromDt" msprop:Generator_ColumnPropNameInRow="FromDt" msprop:Generator_ColumnPropNameInTable="FromDtColumn" msprop:Generator_UserColumnName="FromDt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="OnHour" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnOnHour" msprop:Generator_ColumnPropNameInRow="OnHour" msprop:Generator_ColumnPropNameInTable="OnHourColumn" msprop:Generator_UserColumnName="OnHour" type="xs:int" minOccurs="0" />
+              <xs:element name="ToDt" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnToDt" msprop:Generator_ColumnPropNameInRow="ToDt" msprop:Generator_ColumnPropNameInTable="ToDtColumn" msprop:Generator_UserColumnName="ToDt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="StartTime" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnStartTime" msprop:Generator_ColumnPropNameInRow="StartTime" msprop:Generator_ColumnPropNameInTable="StartTimeColumn" msprop:Generator_UserColumnName="StartTime" type="xs:int" minOccurs="0" />
+              <xs:element name="EndTime" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnEndTime" msprop:Generator_ColumnPropNameInRow="EndTime" msprop:Generator_ColumnPropNameInTable="EndTimeColumn" msprop:Generator_UserColumnName="EndTime" type="xs:int" minOccurs="0" />
+              <xs:element name="Dt" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDt" msprop:Generator_ColumnPropNameInRow="Dt" msprop:Generator_ColumnPropNameInTable="DtColumn" msprop:Generator_UserColumnName="Dt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DtOrder" msprop:Generator_ColumnVarNameInTable="columnDtOrder" msprop:Generator_ColumnPropNameInRow="DtOrder" msprop:Generator_ColumnPropNameInTable="DtOrderColumn" msprop:Generator_UserColumnName="DtOrder" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="OnHourDesc" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnOnHourDesc" msprop:Generator_ColumnPropNameInRow="OnHourDesc" msprop:Generator_ColumnPropNameInTable="OnHourDescColumn" msprop:Generator_UserColumnName="OnHourDesc" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="77" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NewReg" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnNewReg" msprop:Generator_ColumnPropNameInRow="NewReg" msprop:Generator_ColumnPropNameInTable="NewRegColumn" msprop:Generator_UserColumnName="NewReg" type="xs:int" minOccurs="0" />
+              <xs:element name="ReVisit" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnReVisit" msprop:Generator_ColumnPropNameInRow="ReVisit" msprop:Generator_ColumnPropNameInTable="ReVisitColumn" msprop:Generator_UserColumnName="ReVisit" type="xs:int" minOccurs="0" />
+              <xs:element name="TotReg" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTotReg" msprop:Generator_ColumnPropNameInRow="TotReg" msprop:Generator_ColumnPropNameInTable="TotRegColumn" msprop:Generator_UserColumnName="TotReg" type="xs:int" minOccurs="0" />
+              <xs:element name="SeenCnt" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSeenCnt" msprop:Generator_ColumnPropNameInRow="SeenCnt" msprop:Generator_ColumnPropNameInTable="SeenCntColumn" msprop:Generator_UserColumnName="SeenCnt" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Rpt_SchemeWs_Aadhar_CatCnt" targetNamespace="http://tempuri.org/Rpt_SchemeWs_Aadhar_CatCnt.xsd" xmlns:mstns="http://tempuri.org/Rpt_SchemeWs_Aadhar_CatCnt.xsd" xmlns="http://tempuri.org/Rpt_SchemeWs_Aadhar_CatCnt.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="vhms_ukConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="vhms_ukConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.vhms_ukConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Rpt_SchemeWs_Aadhar_CatCnt" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="Rpt_SchemeWs_Aadhar_CatCnt" msprop:Generator_DataSetName="Rpt_SchemeWs_Aadhar_CatCnt">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Rpt_SchemeWs_Aadhar_CatCnt" msprop:Generator_TableClassName="Rpt_SchemeWs_Aadhar_CatCntDataTable" msprop:Generator_TableVarName="tableRpt_SchemeWs_Aadhar_CatCnt" msprop:Generator_TablePropName="_Rpt_SchemeWs_Aadhar_CatCnt" msprop:Generator_RowDeletingName="Rpt_SchemeWs_Aadhar_CatCntRowDeleting" msprop:Generator_RowChangingName="Rpt_SchemeWs_Aadhar_CatCntRowChanging" msprop:Generator_RowEvHandlerName="Rpt_SchemeWs_Aadhar_CatCntRowChangeEventHandler" msprop:Generator_RowDeletedName="Rpt_SchemeWs_Aadhar_CatCntRowDeleted" msprop:Generator_UserTableName="Rpt_SchemeWs_Aadhar_CatCnt" msprop:Generator_RowChangedName="Rpt_SchemeWs_Aadhar_CatCntRowChanged" msprop:Generator_RowEvArgName="Rpt_SchemeWs_Aadhar_CatCntRowChangeEvent" msprop:Generator_RowClassName="Rpt_SchemeWs_Aadhar_CatCntRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DistName" msprop:Generator_ColumnVarNameInTable="columnDistName" msprop:Generator_ColumnPropNameInRow="DistName" msprop:Generator_ColumnPropNameInTable="DistNameColumn" msprop:Generator_UserColumnName="DistName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SchemeName" msprop:Generator_ColumnVarNameInTable="columnSchemeName" msprop:Generator_ColumnPropNameInRow="SchemeName" msprop:Generator_ColumnPropNameInTable="SchemeNameColumn" msprop:Generator_UserColumnName="SchemeName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CasteName" msprop:Generator_ColumnVarNameInTable="columnCasteName" msprop:Generator_ColumnPropNameInRow="CasteName" msprop:Generator_ColumnPropNameInTable="CasteNameColumn" msprop:Generator_UserColumnName="CasteName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CatCnt" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCatCnt" msprop:Generator_ColumnPropNameInRow="CatCnt" msprop:Generator_ColumnPropNameInTable="CatCntColumn" msprop:Generator_UserColumnName="CatCnt" type="xs:int" minOccurs="0" />
+              <xs:element name="CostofItem" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCostofItem" msprop:Generator_ColumnPropNameInRow="CostofItem" msprop:Generator_ColumnPropNameInTable="CostofItemColumn" msprop:Generator_UserColumnName="CostofItem" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

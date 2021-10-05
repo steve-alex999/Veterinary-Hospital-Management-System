@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DS_ADetails" targetNamespace="http://tempuri.org/DS_ADetails.xsd" xmlns:mstns="http://tempuri.org/DS_ADetails.xsd" xmlns="http://tempuri.org/DS_ADetails.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="EVHMSConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="EVHMSConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.EVHMSConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DS_ADetails" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="DS_ADetails" msprop:Generator_UserDSName="DS_ADetails">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Rpt_PatientCaseSheet" msprop:Generator_TableClassName="Rpt_PatientCaseSheetDataTable" msprop:Generator_TableVarName="tableRpt_PatientCaseSheet" msprop:Generator_TablePropName="Rpt_PatientCaseSheet" msprop:Generator_RowDeletingName="Rpt_PatientCaseSheetRowDeleting" msprop:Generator_RowChangingName="Rpt_PatientCaseSheetRowChanging" msprop:Generator_RowEvHandlerName="Rpt_PatientCaseSheetRowChangeEventHandler" msprop:Generator_RowDeletedName="Rpt_PatientCaseSheetRowDeleted" msprop:Generator_UserTableName="Rpt_PatientCaseSheet" msprop:Generator_RowChangedName="Rpt_PatientCaseSheetRowChanged" msprop:Generator_RowEvArgName="Rpt_PatientCaseSheetRowChangeEvent" msprop:Generator_RowClassName="Rpt_PatientCaseSheetRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RegistrationNo" msprop:Generator_ColumnVarNameInTable="columnRegistrationNo" msprop:Generator_ColumnPropNameInRow="RegistrationNo" msprop:Generator_ColumnPropNameInTable="RegistrationNoColumn" msprop:Generator_UserColumnName="RegistrationNo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Reg_Dt" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnReg_Dt" msprop:Generator_ColumnPropNameInRow="Reg_Dt" msprop:Generator_ColumnPropNameInTable="Reg_DtColumn" msprop:Generator_UserColumnName="Reg_Dt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Owner_Name" msprop:Generator_ColumnVarNameInTable="columnOwner_Name" msprop:Generator_ColumnPropNameInRow="Owner_Name" msprop:Generator_ColumnPropNameInTable="Owner_NameColumn" msprop:Generator_UserColumnName="Owner_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Owner_Address" msprop:Generator_ColumnVarNameInTable="columnOwner_Address" msprop:Generator_ColumnPropNameInRow="Owner_Address" msprop:Generator_ColumnPropNameInTable="Owner_AddressColumn" msprop:Generator_UserColumnName="Owner_Address" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Owner_MobileNo" msprop:Generator_ColumnVarNameInTable="columnOwner_MobileNo" msprop:Generator_ColumnPropNameInRow="Owner_MobileNo" msprop:Generator_ColumnPropNameInTable="Owner_MobileNoColumn" msprop:Generator_UserColumnName="Owner_MobileNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AnimalTypeCode" msprop:Generator_ColumnVarNameInTable="columnAnimalTypeCode" msprop:Generator_ColumnPropNameInRow="AnimalTypeCode" msprop:Generator_ColumnPropNameInTable="AnimalTypeCodeColumn" msprop:Generator_UserColumnName="AnimalTypeCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AnimalTypeDesc" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnAnimalTypeDesc" msprop:Generator_ColumnPropNameInRow="AnimalTypeDesc" msprop:Generator_ColumnPropNameInTable="AnimalTypeDescColumn" msprop:Generator_UserColumnName="AnimalTypeDesc" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="154" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Age" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnAge" msprop:Generator_ColumnPropNameInRow="Age" msprop:Generator_ColumnPropNameInTable="AgeColumn" msprop:Generator_UserColumnName="Age" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="74" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AgeInYear" msprop:Generator_ColumnVarNameInTable="columnAgeInYear" msprop:Generator_ColumnPropNameInRow="AgeInYear" msprop:Generator_ColumnPropNameInTable="AgeInYearColumn" msprop:Generator_UserColumnName="AgeInYear" type="xs:int" minOccurs="0" />
+              <xs:element name="AgeInMonth" msprop:Generator_ColumnVarNameInTable="columnAgeInMonth" msprop:Generator_ColumnPropNameInRow="AgeInMonth" msprop:Generator_ColumnPropNameInTable="AgeInMonthColumn" msprop:Generator_UserColumnName="AgeInMonth" type="xs:int" minOccurs="0" />
+              <xs:element name="Gender" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnGender" msprop:Generator_ColumnPropNameInRow="Gender" msprop:Generator_ColumnPropNameInTable="GenderColumn" msprop:Generator_UserColumnName="Gender" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Reg_Fee" msprop:Generator_ColumnVarNameInTable="columnReg_Fee" msprop:Generator_ColumnPropNameInRow="Reg_Fee" msprop:Generator_ColumnPropNameInTable="Reg_FeeColumn" msprop:Generator_UserColumnName="Reg_Fee" type="xs:int" minOccurs="0" />
+              <xs:element name="ExemptedCategory" msprop:Generator_ColumnVarNameInTable="columnExemptedCategory" msprop:Generator_ColumnPropNameInRow="ExemptedCategory" msprop:Generator_ColumnPropNameInTable="ExemptedCategoryColumn" msprop:Generator_UserColumnName="ExemptedCategory" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DistName" msprop:Generator_ColumnVarNameInTable="columnDistName" msprop:Generator_ColumnPropNameInRow="DistName" msprop:Generator_ColumnPropNameInTable="DistNameColumn" msprop:Generator_UserColumnName="DistName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="InstitutionName" msprop:Generator_ColumnVarNameInTable="columnInstitutionName" msprop:Generator_ColumnPropNameInRow="InstitutionName" msprop:Generator_ColumnPropNameInTable="InstitutionNameColumn" msprop:Generator_UserColumnName="InstitutionName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Owner_StateCode" msprop:Generator_ColumnVarNameInTable="columnOwner_StateCode" msprop:Generator_ColumnPropNameInRow="Owner_StateCode" msprop:Generator_ColumnPropNameInTable="Owner_StateCodeColumn" msprop:Generator_UserColumnName="Owner_StateCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Owner_DistCode" msprop:Generator_ColumnVarNameInTable="columnOwner_DistCode" msprop:Generator_ColumnPropNameInRow="Owner_DistCode" msprop:Generator_ColumnPropNameInTable="Owner_DistCodeColumn" msprop:Generator_UserColumnName="Owner_DistCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Owner_MandCode" msprop:Generator_ColumnVarNameInTable="columnOwner_MandCode" msprop:Generator_ColumnPropNameInRow="Owner_MandCode" msprop:Generator_ColumnPropNameInTable="Owner_MandCodeColumn" msprop:Generator_UserColumnName="Owner_MandCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Rpt_PatientCaseSheet" />
+      <xs:field xpath="mstns:RegistrationNo" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

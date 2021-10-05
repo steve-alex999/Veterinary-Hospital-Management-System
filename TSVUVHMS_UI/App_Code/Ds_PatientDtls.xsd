@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Ds_PatientDtls" targetNamespace="http://tempuri.org/Ds_PatientDtls.xsd" xmlns:mstns="http://tempuri.org/Ds_PatientDtls.xsd" xmlns="http://tempuri.org/Ds_PatientDtls.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="EVHMSConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="EVHMSConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.EVHMSConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Ds_PatientDtls" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="Ds_PatientDtls" msprop:Generator_UserDSName="Ds_PatientDtls">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="AnimalDetalis_RDLC" msprop:Generator_TableClassName="AnimalDetalis_RDLCDataTable" msprop:Generator_TableVarName="tableAnimalDetalis_RDLC" msprop:Generator_RowChangedName="AnimalDetalis_RDLCRowChanged" msprop:Generator_TablePropName="AnimalDetalis_RDLC" msprop:Generator_RowDeletingName="AnimalDetalis_RDLCRowDeleting" msprop:Generator_RowChangingName="AnimalDetalis_RDLCRowChanging" msprop:Generator_RowEvHandlerName="AnimalDetalis_RDLCRowChangeEventHandler" msprop:Generator_RowDeletedName="AnimalDetalis_RDLCRowDeleted" msprop:Generator_RowClassName="AnimalDetalis_RDLCRow" msprop:Generator_UserTableName="AnimalDetalis_RDLC" msprop:Generator_RowEvArgName="AnimalDetalis_RDLCRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RegistrationNo" msprop:Generator_ColumnVarNameInTable="columnRegistrationNo" msprop:Generator_ColumnPropNameInRow="RegistrationNo" msprop:Generator_ColumnPropNameInTable="RegistrationNoColumn" msprop:Generator_UserColumnName="RegistrationNo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Age" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnAge" msprop:Generator_ColumnPropNameInRow="Age" msprop:Generator_ColumnPropNameInTable="AgeColumn" msprop:Generator_UserColumnName="Age" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="74" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AgeInMonth" msprop:Generator_ColumnVarNameInTable="columnAgeInMonth" msprop:Generator_ColumnPropNameInRow="AgeInMonth" msprop:Generator_ColumnPropNameInTable="AgeInMonthColumn" msprop:Generator_UserColumnName="AgeInMonth" type="xs:int" minOccurs="0" />
+              <xs:element name="AgeInYear" msprop:Generator_ColumnVarNameInTable="columnAgeInYear" msprop:Generator_ColumnPropNameInRow="AgeInYear" msprop:Generator_ColumnPropNameInTable="AgeInYearColumn" msprop:Generator_UserColumnName="AgeInYear" type="xs:int" minOccurs="0" />
+              <xs:element name="Reg_Dt" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnReg_Dt" msprop:Generator_ColumnPropNameInRow="Reg_Dt" msprop:Generator_ColumnPropNameInTable="Reg_DtColumn" msprop:Generator_UserColumnName="Reg_Dt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Gender" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnGender" msprop:Generator_ColumnPropNameInRow="Gender" msprop:Generator_ColumnPropNameInTable="GenderColumn" msprop:Generator_UserColumnName="Gender" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Owner_Name" msprop:Generator_ColumnVarNameInTable="columnOwner_Name" msprop:Generator_ColumnPropNameInRow="Owner_Name" msprop:Generator_ColumnPropNameInTable="Owner_NameColumn" msprop:Generator_UserColumnName="Owner_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Owner_Address" msprop:Generator_ColumnVarNameInTable="columnOwner_Address" msprop:Generator_ColumnPropNameInRow="Owner_Address" msprop:Generator_ColumnPropNameInTable="Owner_AddressColumn" msprop:Generator_UserColumnName="Owner_Address" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Owner_MobileNo" msprop:Generator_ColumnVarNameInTable="columnOwner_MobileNo" msprop:Generator_ColumnPropNameInRow="Owner_MobileNo" msprop:Generator_ColumnPropNameInTable="Owner_MobileNoColumn" msprop:Generator_UserColumnName="Owner_MobileNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DistName" msprop:Generator_ColumnVarNameInTable="columnDistName" msprop:Generator_ColumnPropNameInRow="DistName" msprop:Generator_ColumnPropNameInTable="DistNameColumn" msprop:Generator_UserColumnName="DistName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MandName" msprop:Generator_ColumnVarNameInTable="columnMandName" msprop:Generator_ColumnPropNameInRow="MandName" msprop:Generator_ColumnPropNameInTable="MandNameColumn" msprop:Generator_UserColumnName="MandName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AnimalTypeDesc" msprop:Generator_ColumnVarNameInTable="columnAnimalTypeDesc" msprop:Generator_ColumnPropNameInRow="AnimalTypeDesc" msprop:Generator_ColumnPropNameInTable="AnimalTypeDescColumn" msprop:Generator_UserColumnName="AnimalTypeDesc" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Reg_Fee" msprop:Generator_ColumnVarNameInTable="columnReg_Fee" msprop:Generator_ColumnPropNameInRow="Reg_Fee" msprop:Generator_ColumnPropNameInTable="Reg_FeeColumn" msprop:Generator_UserColumnName="Reg_Fee" type="xs:int" minOccurs="0" />
+              <xs:element name="InstitutionName" msprop:Generator_ColumnVarNameInTable="columnInstitutionName" msprop:Generator_ColumnPropNameInRow="InstitutionName" msprop:Generator_ColumnPropNameInTable="InstitutionNameColumn" msprop:Generator_UserColumnName="InstitutionName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Owner_Aadhar" msprop:Generator_ColumnVarNameInTable="columnOwner_Aadhar" msprop:Generator_ColumnPropNameInRow="Owner_Aadhar" msprop:Generator_ColumnPropNameInTable="Owner_AadharColumn" msprop:Generator_UserColumnName="Owner_Aadhar" type="xs:string" minOccurs="0" />
+              <xs:element name="Place_of_Visit" msprop:Generator_ColumnVarNameInTable="columnPlace_of_Visit" msprop:Generator_ColumnPropNameInRow="Place_of_Visit" msprop:Generator_ColumnPropNameInTable="Place_of_VisitColumn" msprop:Generator_UserColumnName="Place_of_Visit" type="xs:string" minOccurs="0" />
+              <xs:element name="PurposeDesc" msprop:Generator_ColumnVarNameInTable="columnPurposeDesc" msprop:Generator_ColumnPropNameInRow="PurposeDesc" msprop:Generator_ColumnPropNameInTable="PurposeDescColumn" msprop:Generator_UserColumnName="PurposeDesc" type="xs:string" minOccurs="0" />
+              <xs:element name="CasteName" msprop:Generator_ColumnVarNameInTable="columnCasteName" msprop:Generator_ColumnPropNameInRow="CasteName" msprop:Generator_ColumnPropNameInTable="CasteNameColumn" msprop:Generator_UserColumnName="CasteName" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint11">
+      <xs:selector xpath=".//mstns:AnimalDetalis_RDLC" />
+      <xs:field xpath="mstns:RegistrationNo" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

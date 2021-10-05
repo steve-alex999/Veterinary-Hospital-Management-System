@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Ds_Rpt_ph_DailyStocksRcvd" targetNamespace="http://tempuri.org/Ds_Rpt_ph_DailyStocksRcvd.xsd" xmlns:mstns="http://tempuri.org/Ds_Rpt_ph_DailyStocksRcvd.xsd" xmlns="http://tempuri.org/Ds_Rpt_ph_DailyStocksRcvd.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="EVHMSConnectionString" IsAppSettingsProperty="true" Modifier="Assembly" Name="EVHMSConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.EVHMSConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Ds_Rpt_ph_DailyStocksRcvd" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="Ds_Rpt_ph_DailyStocksRcvd" msprop:Generator_UserDSName="Ds_Rpt_ph_DailyStocksRcvd">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Rpt_PH_DailyStocksRcvd" msprop:Generator_TableClassName="Rpt_PH_DailyStocksRcvdDataTable" msprop:Generator_TableVarName="tableRpt_PH_DailyStocksRcvd" msprop:Generator_RowChangedName="Rpt_PH_DailyStocksRcvdRowChanged" msprop:Generator_TablePropName="Rpt_PH_DailyStocksRcvd" msprop:Generator_RowDeletingName="Rpt_PH_DailyStocksRcvdRowDeleting" msprop:Generator_RowChangingName="Rpt_PH_DailyStocksRcvdRowChanging" msprop:Generator_RowEvHandlerName="Rpt_PH_DailyStocksRcvdRowChangeEventHandler" msprop:Generator_RowDeletedName="Rpt_PH_DailyStocksRcvdRowDeleted" msprop:Generator_RowClassName="Rpt_PH_DailyStocksRcvdRow" msprop:Generator_UserTableName="Rpt_PH_DailyStocksRcvd" msprop:Generator_RowEvArgName="Rpt_PH_DailyStocksRcvdRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FromDt" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnFromDt" msprop:Generator_ColumnPropNameInRow="FromDt" msprop:Generator_ColumnPropNameInTable="FromDtColumn" msprop:Generator_UserColumnName="FromDt" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ToDt" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnToDt" msprop:Generator_ColumnPropNameInRow="ToDt" msprop:Generator_ColumnPropNameInTable="ToDtColumn" msprop:Generator_UserColumnName="ToDt" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="DistName" msprop:Generator_ColumnVarNameInTable="columnDistName" msprop:Generator_ColumnPropNameInRow="DistName" msprop:Generator_ColumnPropNameInTable="DistNameColumn" msprop:Generator_UserColumnName="DistName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="InstitutionName" msprop:Generator_ColumnVarNameInTable="columnInstitutionName" msprop:Generator_ColumnPropNameInRow="InstitutionName" msprop:Generator_ColumnPropNameInTable="InstitutionNameColumn" msprop:Generator_UserColumnName="InstitutionName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Unique_InsId" msprop:Generator_ColumnVarNameInTable="columnUnique_InsId" msprop:Generator_ColumnPropNameInRow="Unique_InsId" msprop:Generator_ColumnPropNameInTable="Unique_InsIdColumn" msprop:Generator_UserColumnName="Unique_InsId" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ReceiptDate" msprop:Generator_ColumnVarNameInTable="columnReceiptDate" msprop:Generator_ColumnPropNameInRow="ReceiptDate" msprop:Generator_ColumnPropNameInTable="ReceiptDateColumn" msprop:Generator_UserColumnName="ReceiptDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="DrugCode" msprop:Generator_ColumnVarNameInTable="columnDrugCode" msprop:Generator_ColumnPropNameInRow="DrugCode" msprop:Generator_ColumnPropNameInTable="DrugCodeColumn" msprop:Generator_UserColumnName="DrugCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DrugName" msprop:Generator_ColumnVarNameInTable="columnDrugName" msprop:Generator_ColumnPropNameInRow="DrugName" msprop:Generator_ColumnPropNameInTable="DrugNameColumn" msprop:Generator_UserColumnName="DrugName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Unit" msprop:Generator_ColumnVarNameInTable="columnUnit" msprop:Generator_ColumnPropNameInRow="Unit" msprop:Generator_ColumnPropNameInTable="UnitColumn" msprop:Generator_UserColumnName="Unit" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Quantity" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnQuantity" msprop:Generator_ColumnPropNameInRow="Quantity" msprop:Generator_ColumnPropNameInTable="QuantityColumn" msprop:Generator_UserColumnName="Quantity" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ValueofDrug" msprop:Generator_ColumnVarNameInTable="columnValueofDrug" msprop:Generator_ColumnPropNameInRow="ValueofDrug" msprop:Generator_ColumnPropNameInTable="ValueofDrugColumn" msprop:Generator_UserColumnName="ValueofDrug" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
